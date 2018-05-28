@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,11 +76,12 @@ WSGI_APPLICATION = 'CodeSarathi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myfirst',
-        'USER': 'root',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myfirst1',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432'
 
     }
 }
@@ -122,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_URL = '/static/'
+MEDIA_URL ='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL=reverse_lazy('dashboard')
+LOGIN_URL=reverse_lazy('login')
+LOGOUT_URL=reverse_lazy('logout')
