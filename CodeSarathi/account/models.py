@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 
 class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE,),
+    user = models.OneToOneField(User,on_delete=models.CASCADE,default=False)
     date_of_birth=models.DateField(blank=True,null=True)
     photos=models.ImageField(upload_to='users/%Y/%m/%d',blank=True,)
     bio = models.CharField(max_length=200,blank=True, null=True)
@@ -23,3 +23,6 @@ def create_user_profile(sender,instance,created,**kwargs):
 def save_user_profile(sender,instance,**kwargs):
     instance.profile.save()
 """
+
+"""class Mentor(models.Model):
+    profile=models.OneToOneField(Profile,on_delete=models.SET_NULL)"""
