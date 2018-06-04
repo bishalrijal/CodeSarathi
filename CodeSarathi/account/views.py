@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
 from django.contrib.auth import authenticate, login
-from .form import LoginForm ,UserRegistrationForm
-from .models import Profile
+from .form import LoginForm ,UserRegistrationForm,UserEditForm,ProfileEditForm
+from .models import *
 
 """def user_login(request):
     if request.method=='POST':
@@ -27,6 +27,33 @@ from .models import Profile
     return render(request, 'account/login.html', {'form' : form })
     """
 from django.contrib.auth.decorators import login_required 
+from django.views.generic import ListView
+"""class TechSkillList(ListView):
+    model= TechSkill
+    context_object_name='skills'
+    def  get_context_data(self,**kwargs):
+        context = super(TechSkillList,self).get_context_data(**kwargs)
+        context['languages']=TechSkill
+        return context"""
+
+def Home(request):
+    s_list=[]
+    Lang=[]
+    s_no=TechSkill.objects.all().count()
+    for i in range(s_no):
+        t=TechSkill.objects.all()[i]
+        s_list.append(t.skill_name)
+        l_no=t.languages.all().count()
+        l=[]
+        for j in range(l_no):
+            l.append(t.languages.all()[j].name)
+        Lang.append(l)
+
+    return render(request,'base.html',{'skills':s_list,'languages':Lang})
+    
+    
+        
+
 @login_required
 def Dashboard(request):
     return render(request,'account/dashboard.html')
@@ -54,3 +81,24 @@ def Register(request):
                         {'user_form':user_form})
 
 # Create your views here.
+##profile edit view here
+@login_required
+def edit_profile(request):
+    if request.method=='POST':
+        user_form=UserEditForm(instance=request.user,data=request.POST)
+        profile_form=ProfileEditForm(instance=request.user.Profile,
+                                    data=request.POST,
+                                    files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+    else:
+        user_form=UserEditForm(instance=request.user)
+        profile_form=ProfileEditForm(instance=request.user.profile)
+
+    return render(request,
+                    'account/edit.html',
+                    {'user_form':user_form,
+                    'profile_form':profile_form
+                    })
+                    

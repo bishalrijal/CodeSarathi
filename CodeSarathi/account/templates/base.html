@@ -35,7 +35,7 @@
                 <a href="{% url 'dashboard' %}">Home</a>
             </li>
             <li>
-                <a href="{% url 'dashboard' %}">profile</a>
+                <a href="{% url 'edit' %}">profile</a>
             </li>
         </ul>
     {% endif %}
@@ -50,6 +50,33 @@
     </div>
     <div id="content">
         {% block content %}
+        
+        {% if skills %}
+            <ul>we have expert on </ul>
+            {% for techskill in skills  %}
+                <li>
+                    {{techskill}}
+                    {% for lang in languages %}
+                        {% if lang %}
+                            {% for l in lang %}
+                                <li>{{l}}</li>
+                            
+                            {% endfor %}
+
+                        
+                        {% else %}
+                            <p>there is no languages</p>
+                        {% endif %}
+                    
+                    {% endfor %}
+                </li>
+            
+            {% endfor %}
+        {% endif %}           
+            
+                
+
+            
         {% endblock %}
     </div>
 </body>
