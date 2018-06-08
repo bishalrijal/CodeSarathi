@@ -12,7 +12,7 @@
     <h1>Create an account</h1>
     <p>please, signup using the following form </p>
     <form action="." method="post">
-        {{ user_form.as_p }}
+        {{ user_form }}
         {% csrf_token %}
         <p> <input type="submit" value="create my account "> </p>
     </form>

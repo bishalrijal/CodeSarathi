@@ -14,7 +14,7 @@ class Languages(models.Model):
 
 # for technical skill one has or one has interest on 
 class TechSkill(models.Model):
-    languages=models.ManyToManyField(Languages,null=True)
+    languages=models.ManyToManyField(Languages)
     skill_name = models.CharField(max_length=2000, blank=True, null=True,)
 
     def __str__(self):
@@ -29,7 +29,9 @@ class Profile(models.Model):
     skill = models.ForeignKey(TechSkill, on_delete=models.CASCADE,null=True,related_name='sklii')
     languages=models.ForeignKey(Languages,on_delete=models.CASCADE,to_field='name',null=True)
     def __str__(self) :
-        return 'profile of {}'.format(self.user.user_name)
+        return 'profile of {}'.format(self.user.username)
+
+
 
 # Create your models here.
 """@receiver(post_save,sender=User)
@@ -42,5 +44,12 @@ def save_user_profile(sender,instance,**kwargs):
     instance.profile.save()
 """
 
-"""class Mentor(models.Model):
-    profile=models.OneToOneField(Profile,on_delete=models.SET_NULL)"""
+class Mentor(models.Model):
+    profile=models.OneToOneField(User,on_delete=models.SET_NULL,related_name="mentor_user", null=True ,default=" ",)
+    photos=models.ImageField(upload_to='mentor/%Y/%m/%d',blank=True,)
+    bio = models.CharField(max_length=200,blank=True, null=True)
+    skill = models.ManyToManyField(TechSkill,related_name='mentor_skill')
+    languages=models.ManyToManyField(Languages,related_name='mentor_language')
+
+    def __str__(self):
+        return '{}'.format(self.profile.username)

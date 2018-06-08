@@ -23,6 +23,7 @@ urlpatterns = [
    # path('poll/',include('poll.urls')),
     path('account/',include('account.urls')),
     #path('',RedirectView.as_view(url='/account/login/')),
+    
 ]
 from django.conf import settings 
 from django.conf.urls.static import static

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile,TechSkill,Languages
+from .models import Profile,TechSkill,Languages,Mentor
 class ProfileAdmin(admin.ModelAdmin):
     model=Profile
     list_display = ['user','date_of_birth','photos']
@@ -12,6 +12,11 @@ class LanguagesAdmin(admin.ModelAdmin):
     model=Languages
     list_display=['name']
 
+class MentorAdmin(admin.ModelAdmin):
+    model= Mentor
+    list_display=['profile',]
+
 admin.site.register(Profile,ProfileAdmin)
 admin.site.register(TechSkill,TechSkillAdmin)
 admin.site.register(Languages,LanguagesAdmin)
+admin.site.register(Mentor,MentorAdmin)
