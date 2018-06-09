@@ -1,0 +1,6 @@
+CodeSarathi/manage.*
+CodeSarathi/CodeSarathi/settings.*
+CodeSarathi/CodeSarathi/__pycache__/*.
+CodeSarathi/account/__pycache__/*.
+CodeSarathi/account/migrations/*
+.CodeSarathi/media/*.
