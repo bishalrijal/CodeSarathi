@@ -1,20 +1,50 @@
-
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/base.html' %}">
-{% endblock css %}
-{% block title %}
-    Create an account 
-{% endblock title %}
- {% block content %}
-<div class="formdiv">
-    <h1>Create an account</h1>
-    <p>please, signup using the following form </p>
-    <form action="." method="post">
-        {{ user_form.as_p }}
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/singupcss.css' %}" />
+</head>
+<body>
+    <form action="{% url 'account:register' %}" method="post" class="main-form needs-validation" novalidate >
         {% csrf_token %}
-        <p> <input type="submit" value="create my account "> </p>
-    </form>
-</div>
- {% endblock content %}
+        <h3><p class="text-center">Join With Amazing Community</p></h3><br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="firstname">Firstname</label>
+                        {{user_form.first_name}}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        {{user_form.last_name}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                {{user_form.username}}
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                {{user_form.email}}
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                {{user_form.password}}
+            </div>
+            <div class="form-group">
+                <label for="password2">Repeat Password</label>
+                {{user_form.password2}}
+            </div>
+            </div><br>
+            <button type="submit" class="btn btn-success btn-block">Register</button>
+        </form>
+</body>
+</html>
