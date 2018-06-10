@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'django.core.context_processors.media',
             ],
         },
     },
@@ -76,12 +77,17 @@ WSGI_APPLICATION = 'CodeSarathi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'myfirst1',
-        'USER': 'postgres',
-        'PASSWORD': '12345',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '3306',
+         'OPTIONS':{
+'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+           #
+             'sql_mode': 'traditional',
+        }
 
     }
 }
@@ -117,7 +123,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ =False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -126,9 +132,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_URL = '/static/'
 MEDIA_URL ='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+MEDIA_ROOT=os.path.join(BASE_DIR,'/media/')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+
+]
+STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static/")
 
 from django.urls import reverse_lazy
-LOGIN_REDIRECT_URL=reverse_lazy('dashboard')
-LOGIN_URL=reverse_lazy('login')
-LOGOUT_URL=reverse_lazy('logout')
+LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
+LOGIN_URL=reverse_lazy('account:login')
+LOGOUT_URL=reverse_lazy('account:logout')

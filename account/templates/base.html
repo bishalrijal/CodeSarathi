@@ -1,10 +1,11 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
@@ -12,44 +13,74 @@
         <div>
                 <span class="logo" > <font size=80px >CodeSarathi</font></span>
         </div>
-    
+
     <div class="topnav">
-        <a class= "home" href="{% url 'index' %}">Home</a>
-        <a href="{% url 'dashboard' %}">profile</a>
-        <a href="{% url 'login' %}">login</a>
-        <a href="{% url 'resister' %}">Sign-up</a>
+        <a class= "home" href="">Home</a>
+        <a href="{% url 'account:dashboard' %}">profile</a>
+        <a href="{% url 'account:login' %}">login</a>
+        <a href="{% url 'account:register' %}">Sign-up</a>
         <div class="topnav-right">
-            <a href="{% url 'index' %}">About</a>
-            <a href="{% url 'index' %}">Become a mentor</a>
-            <input type="text" value="Search">
+            <a href="">About</a>
+            <a href="">Become a mentor</a>
+            <form method="GET" action=" ">
+                <input type="text" name='q',placeholder="Search">
+                <input type="submit" value="Search">
+            </form>
         </div>
 
-    
+
     </div>
-   
+
     <div class="sidebar" id="header">
-           
+
     {% if request.user.is_authenticated %}
         <ul class=" menu ">
             <li>
-                <a href="{% url 'dashboard' %}">Home</a>
+                <a href="{% url 'account:dashboard' %}">Home</a>
             </li>
             <li>
-                <a href="{% url 'dashboard' %}">profile</a>
+                <a href="">profile</a>
             </li>
         </ul>
     {% endif %}
     <span class="user">
         {% if request.user.is_authenticated %}
             Hello {{ user.get_username }}
-            <a href="{% url 'logout' %}">logout</a>
+            <a href="{% url 'account:logout' %}">logout</a>
         {% else %}
-        <a href="{% url "login" %}">Log-in</a>
+        <a href="">Log-in</a>
         {% endif %}
     </span>
     </div>
     <div id="content">
         {% block content %}
+
+        {% if skills %}
+            <ul>we have expert on </ul>
+            {% for techskill in skills  %}
+                <li>
+                    {{techskill}}
+                    {% for lang in languages %}
+                        {% if lang %}
+                            {% for l in lang %}
+                                <li>{{l}}</li>
+
+                            {% endfor %}
+
+
+                        {% else %}
+                            <p>there is no languages</p>
+                        {% endif %}
+
+                    {% endfor %}
+                </li>
+
+            {% endfor %}
+        {% endif %}
+
+
+
+
         {% endblock %}
     </div>
 </body>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.html' %}">
+{% endblock css %}
+{% block title %}
+    CodeSarathi
+{% endblock title %}
+
+{% block content %}
+ <div class="topnav-right">
+            <a href="{% url 'dashboard' %}">About</a>
+            <a href="{% url 'dashboard' %}">Become a mentor</a>
+     <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'resister' %}">Sign-up</a>
+     </div>
+<div class="sidebar" id="head">
+
+    {% if request.user.is_authenticated %}
+        <ul class=" menu ">
+            <li>
+                <a href="{% url 'dashboard' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}">profile</a>
+            </li>
+        </ul>
+    {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Hello {{ user.get_username }}
+            <a href="{% url 'logout' %}">logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Log-in</a>
+        {% endif %}
+    </span>
+    </div>
+{% endblock %}
