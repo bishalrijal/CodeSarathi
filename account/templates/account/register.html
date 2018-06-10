@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.html' %}">
+{% endblock css %}
+{% block title %}
+    Create an account 
+{% endblock title %}
+ {% block content %}
+<div class="formdiv">
+    <h1>Create an account</h1>
+    <p>please, signup using the following form </p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p> <input type="submit" value="create my account "> </p>
+    </form>
+</div>
+ {% endblock content %}

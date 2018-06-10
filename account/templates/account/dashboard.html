@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Dashboard {% endblock title %}
+{% block content %}
+    <p>welcome {{ user.get_username }}</p>
+<div class="topnav-right">
+           <!--<img src="{{media_url}}{{ pic }}" alt="no image" height="200" width="250" border="1"/>-->
+
+            <a href="">About</a>
+            <a href="">Become a mentor</a>
+     <a href="{% url 'account:login' %}">login</a>
+    <a href="{% url 'account:logout' %}">logout</a>
+        <a href="{% url 'account:register' %}">Sign-up</a>
+     </div>
+
+<form action="{{dashboard}}" method="post">
+    {{post_form.as_p}}
+    {%csrf_token %}
+    <p><input type="submit" value="Post hear"></p>
+</form>
+<h1>posts of user</h1>
+<p>
+
+</p>
+{% for post in posts %}
+{{post.post}}
+{% endfor %}
+
+{% endblock content %}

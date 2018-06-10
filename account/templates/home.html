@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.html' %}">
+{% endblock css %}
+{% block title %}
+    CodeSarathi
+{% endblock title %}
+{% block content %}
+ <div class="topnav-right">
+            <a href="{% url 'index' %}">About</a>
+            <a href="{% url 'index' %}">Become a mentor</a>
+     <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'resister' %}">Sign-up</a>
+     </div>
+<div class="sidebar" id="head">
+
+    {% if request.user.is_authenticated %}
+        <ul class=" menu ">
+            <li>
+                <a href="{% url 'dashboard' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}">profile</a>
+            </li>
+        </ul>
+    {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Hello {{ user.get_username }}
+            <a href="{% url 'logout' %}">logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Log-in</a>
+        {% endif %}
+    </span>
+    </div>
+
+
+
+{% endblock content %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+        <div>
+                <span class="logo" > <font size=80px >CodeSarathi</font></span>
+        </div>
+
+    <div class="topnav">
+        <a class= "home" href="{% url 'index' %}">Home</a>
+
+        <a href="{% url 'dashboard' %}">profile</a>
+        <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'resister' %}">Sign-up</a>
+        <div class="topnav-right">
+            <a href="{% url 'index' %}">About</a>
+            <a href="{% url 'index' %}">Become a mentor</a>
+            <input type="text" value="Search">
+        </div>
+
+
+    </div>
+
+    <div class="sidebar" id="header">
+
+    {% if request.user.is_authenticated %}
+        <ul class=" menu ">
+            <li>
+                <a href="{% url 'dashboard' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}">profile</a>
+            </li>
+        </ul>
+    {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Hello {{ user.get_username }}
+            <a href="{% url 'logout' %}">logout</a>
+        {% else %}
+        <a href="{% url "login" %}">Log-in</a>
+        {% endif %}
+    </span>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
