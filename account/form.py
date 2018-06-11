@@ -1,8 +1,8 @@
 from django import forms
 from .models import Comment
 class LoginForm(forms.Form):
-    username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholer':'Username'}))
-    password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}))
+    username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholer':'Username','id':'id="exampleDropdownFormEmail1"'}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password','id':'exampleDropdownFormPassword1'}))
 
 from django.contrib.auth.models import User
 from .models import Profile,Post
