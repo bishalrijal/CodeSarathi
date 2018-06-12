@@ -1,6 +1,2 @@
-manage.*
-CodeSarathi/settings.*
-CodeSarathi/__pycache__
-account/__pycache__
-account/migrations
-media
+codesarathi/settings/local.py
+.py[cod]
