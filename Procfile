@@ -1,1 +1,1 @@
-web: gunicorn cdsarathi.wsgi
+web: gunicorn CodeSarathi.wsgi
