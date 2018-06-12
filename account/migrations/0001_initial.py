@@ -102,7 +102,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mentor',
             name='profile',
-            field=models.OneToOneField(default=' ', null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='mentor_user', to=settings.AUTH_USER_MODEL),
+            field=models.OneToOneField(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='mentor_user', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='mentor',
