@@ -9,6 +9,7 @@ from django.contrib.auth import get_user_model
 ##for programming languages
 class Languages(models.Model):
     name=models.CharField(max_length=200,blank=True, null=True,unique=True)
+    slug=models.SlugField(max_length=50,blank=False,)
 
     def __str__(self):
         return self.name
@@ -73,7 +74,6 @@ def save_user_profile(sender,instance,**kwargs):
 from django.utils import timezone
 from django.urls import reverse
 #from taggit.managers import TaggableManager
-print("hello")
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,self).get_queryset().filter(status='published')

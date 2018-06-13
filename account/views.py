@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login
 from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .models import Profile
-from .models import Post,User,BlogPost
+from .models import Profile,Mentor
+from .models import Post,User,BlogPost,Languages
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 # Create your views here.
 """def user_login(request):
@@ -79,7 +79,7 @@ def Register(request):
 
 @login_required
 def post_list(request):
-
+    language=Languages.objects.all()
     # posts=Post.published.all()
     object_list = BlogPost.published.all()
     paginator = Paginator(object_list, 2)  # 3 posts in each page
@@ -91,7 +91,7 @@ def post_list(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request,'account/blog.html',{'posts':posts,'page':page})
+    return render(request,'account/blog.html',{'posts':posts,'page':page,'language':language})
     #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
 
 
@@ -132,6 +132,22 @@ def edit_profile(request):
                     {'user_form':user_form,
                     'profile_form':profile_form
                     })
-                    
+
+from django.db.models import Q
+def MentorSearch(request,slug):
+    query=slug
+    if query:
+        result=Mentor.objects.filter(Q(profile__username__icontains=query)|
+        Q(skill__skill_name__icontains=query)|
+        Q(languages__name__icontains=query)
+        ).distinct()
+        return render(request,'search/index.html',{'result':result })
+
+
+    else:
+        msg="No result found for search"
+
+        return render(request,'search/index.html',{'message':msg })
+
 
 # Create your views here.
