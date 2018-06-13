@@ -139,3 +139,5 @@ from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
 LOGIN_URL=reverse_lazy('account:login')
 LOGOUT_URL=reverse_lazy('account:logout')
+
+# klsjfls
