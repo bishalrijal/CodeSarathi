@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q38_f5jxa9o8ytdwnser$6)yr+8^q=r=8_am4^oc2678)^^%1)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['codesarathi.herokuapp.com']
 
@@ -140,6 +140,7 @@ STATICFILES_DIRS = [
 
 ]
 STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static/")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
