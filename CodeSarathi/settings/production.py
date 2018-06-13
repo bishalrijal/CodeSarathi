@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'CodeSarathi.urls'
@@ -144,6 +145,8 @@ from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
 LOGIN_URL=reverse_lazy('account:login')
 LOGOUT_URL=reverse_lazy('account:logout')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
