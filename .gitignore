@@ -17,4 +17,5 @@ CodeSarathi/__pycache__/__init__.cpython-36.pyc
          account/migrations/__pycache__/__init__.cpython-36.pyc
 
 .py[cod]
-.idea/*.*
+.idea/workspace.xml
+.idea/tasks.xml
