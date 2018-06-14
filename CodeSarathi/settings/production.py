@@ -140,7 +140,7 @@ STATICFILES_DIRS = [
 
 ]
 STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static/")
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
