@@ -1,0 +1,12 @@
+.modal-dialog {
+    padding-top: 70px;
+}
+.container{
+    max-width: 400px;
+}
+.signin{
+    vertical-align: 5em;
+}
+.bottom{
+    margin-left: 40%
+}
