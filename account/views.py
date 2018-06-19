@@ -4,8 +4,7 @@ from django.contrib.auth import authenticate, login
 from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from .models import Profile,Mentor
-from .models import Post,User,BlogPost,Languages
+from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 # Create your views here.
 """def user_login(request):
@@ -79,7 +78,7 @@ def Register(request):
 
 @login_required
 def post_list(request):
-    language=Languages.objects.all()
+    skill= TechSkill.objects.all()
     # posts=Post.published.all()
     object_list = BlogPost.published.all()
     paginator = Paginator(object_list, 2)  # 3 posts in each page
@@ -91,7 +90,7 @@ def post_list(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request,'account/blog.html',{'posts':posts,'page':page,'language':language})
+    return render(request,'account/blog.html',{'posts':posts,'page':page,'skill':skill})
     #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
 
 
