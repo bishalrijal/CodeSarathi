@@ -37,7 +37,7 @@ def Step2(request):
     if request.method =='POST':
         user_form=InfoForm(request.POST)
         if user_form.is_valid:
-            user_info=user_form.save(commit=False)
+            user_info = user_form.save(commit=False)
             user_info.save()
             return HttpResponse("now you can log in ")
         else:
