@@ -2,5 +2,6 @@ manage.*
 CodeSarathi/settings.*
 CodeSarathi/__pycache__
 account/__pycache__
-account/migrations
+account/migrations/*.*
+account/migrations/__pycache__/*.*
 media
