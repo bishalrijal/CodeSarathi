@@ -173,7 +173,7 @@ STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static/")
 from django.urls import reverse_lazy
 LOGIN_URL='login'
 LOGOUT_URL=reverse_lazy('logout')
-LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
+LOGIN_REDIRECT_URL=reverse_lazy('account:loginr')
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL=reverse_lazy('Mentor:home')
 

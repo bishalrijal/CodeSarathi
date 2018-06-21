@@ -1,35 +1,22 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse 
+from django.http import HttpResponse,HttpResponseRedirect 
 from django.contrib.auth import authenticate, login
 from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
-# Create your views here.
-"""def user_login(request):
-    if request.method=='POST':
-        form=LoginForm(request.POST)
-        if form.is_valid():
-            cd=form.cleaned_data
-            user = authenticate(username=cd['username'],password=cd['password'])
-
-            if user is not None:
-                if user.is_active:
-                    login(request,user)
-                    return HttpResponse('Authentication successfully')
-
-                else:
-                    return HttpResponse('Disabled account')
-            else:
-                return HttpResponse('Invalied Login')
-        
-    else:
-        form = LoginForm()
-            
-    return render(request, 'account/login.html', {'form' : form })
-    """
-
+from django.contrib.auth.models import Group
+group=Group.objects.get(name='mentee')
+def login(request):
+    if request.user is not None:
+        logged_in_user=request.user
+        if logged_in_user.groups.get(name='mentor')is not None:
+            return HttpResponseRedirect(reverse('Mentor:home'))
+        elif logged_in_user.groups.get(name='mentee') is not None:
+            return HttpResponseRedirect(reverse('account:dashboard'))
+        else:
+            return HttpResponse("user is not valied !!")
 
 def firstpage(request):
     return render(request,'01landingpage.html',{})
@@ -37,6 +24,8 @@ def firstpage(request):
 
 def Dashboard(request):
     logged_in_user = request.user
+    if logged_in_user.groups.get(name='mentor')is not None:
+        return HttpResponseRedirect(reverse('Mentor:home'))
     pic=Profile.objects.get(user=logged_in_user)
     picture=pic.photos
     logged_in_user_posts = Post.objects.filter(user=logged_in_user)
@@ -61,10 +50,10 @@ def Register(request):
 
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
-
-
             new_user.save()
-            
+            new_profile=Profile(user=new_user)
+            new_profile.save()
+            new_user.groups.add(group)
             return render(request,
                          'account/registration_done.html',
                          {'new_user':new_user}
