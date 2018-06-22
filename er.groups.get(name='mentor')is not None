@@ -1,0 +1,164 @@
+[33mcommit 507bdeaf867819115e80df9c15113cae2d3f8392[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Thu Jun 14 00:29:26 2018 +0545
+
+    search test
+
+[33mcommit 1002c746a932c9af15b58db9da8e97b699a25f4e[m
+Merge: 46c06f6 6fa2845
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Wed Jun 13 21:09:06 2018 +0545
+
+    layout modified
+
+[33mcommit 6fa284556daa121dd7f385c55f3aedd0e79dc088[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Wed Jun 13 15:56:06 2018 +0545
+
+    change in landing page
+
+[33mcommit 4b471fb2e802b93ba2dfabc59d3e577b3d6b67fc[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Wed Jun 13 15:50:27 2018 +0545
+
+    change in log in page
+
+[33mcommit 249c1a1e2516cf8676c4ba235f306567034b089d[m
+Author: hiddendreamz <[hiddendreamz7@gmail.com]>
+Date:   Wed Jun 13 02:47:19 2018 +0545
+
+    fixed navigation bar and footer
+
+[33mcommit e9132fdaf9042d9a13856c0e00bb5096f916b31d[m
+Author: hiddendreamz <[hiddendreamz7@gmail.com]>
+Date:   Wed Jun 13 02:17:44 2018 +0545
+
+    Added write post card body
+
+[33mcommit 6334c6a36e31225a8847ee816ffb10ab085df006[m
+Author: hiddendreamz <[hiddendreamz7@gmail.com]>
+Date:   Wed Jun 13 02:02:11 2018 +0545
+
+    Changed Css
+
+[33mcommit 46c06f687a963f0d7dfcf49cd662edaaf1b09461[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Tue Jun 12 21:16:41 2018 +0545
+
+    migration error fixed
+
+[33mcommit 028cdc0b39fcc29a8de49d080401b3bf8232b961[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Mon Jun 11 22:41:09 2018 +0545
+
+    file problem fixed
+
+[33mcommit 9229587286ebd34a749fd7dfb49183589043a1e3[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Mon Jun 11 18:18:56 2018 +0545
+
+    modification of all files
+
+[33mcommit e1cbb30b4fd0e7c580778b571bc9fcecd3a80b18[m
+Merge: a1c1a13 ed5f6b4
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Sun Jun 10 22:52:57 2018 +0545
+
+    merge
+
+[33mcommit ed5f6b495d6948dfa25605866c4dbd6d186571ea[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Sun Jun 10 22:31:24 2018 +0545
+
+    return changed
+
+[33mcommit 2faf6fe576377a27528c8cc087397fd72f5482df[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Sun Jun 10 22:15:06 2018 +0545
+
+    change in register.html and in view
+
+[33mcommit a1c1a139199f955178de2c382c7b540c4b4f96bf[m
+Merge: f9f3d64 8f126ba
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Sun Jun 10 22:10:48 2018 +0545
+
+    blog and layout is added
+
+[33mcommit 4ff01e5124a94a0de63870f037297377e22dcdaf[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Sun Jun 10 19:05:22 2018 +0545
+
+    blog added
+
+[33mcommit 8f126ba9723901ef8ef5ffd6a3d62cd6665d8326[m
+Author: Bishal Gaire <bgaire2053@gmail.com>
+Date:   Sun Jun 10 18:03:32 2018 +0545
+
+    adding blog
+
+[33mcommit f9f3d64980b5674d0c5330426a8d7b3df82a2cc4[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Sat Jun 9 09:21:54 2018 +0545
+
+     fixed
+
+[33mcommit 0e2579b79b593d49394fbc76e7967f2aba8e25b5[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Sat Jun 9 09:15:26 2018 +0545
+
+    gitignore file
+
+[33mcommit a860ebe0b2fd62cf93a8ec51cad8ad25a486f5a1[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Fri Jun 8 14:13:41 2018 +0545
+
+    deploy
+
+[33mcommit 320eb314305b3cccb501453ab9a955725b2ab016[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Mon Jun 4 13:48:19 2018 +0545
+
+    List of Programming Language
+
+[33mcommit cf32f4b08b7c25c88f46395f7665e36e6976a00d[m[33m ([m[1;31morigin/gh-pages[m[33m)[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Tue May 29 23:02:46 2018 +0545
+
+    onetoone link is established between user and profile
+
+[33mcommit bcd42859103ec068f03898b632797d63f64c5676[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Mon May 28 22:33:28 2018 +0545
+
+    account is added
+
+[33mcommit 5859407624c2f61e91147fc025a36c05278c5e5d[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Mon May 28 19:04:22 2018 +0545
+
+    Account app is added
+
+[33mcommit 12df9a1151273a8a853661978aef7a9e77eed773[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Mon May 21 20:15:10 2018 +0545
+
+    mysql connection established
+
+[33mcommit 2fe39fbf9fa57ad0272ba0ad4cfed5955f8dd9bf[m
+Author: bishalrijal110 <bishalrijal110@gmail.com>
+Date:   Fri May 18 19:03:47 2018 +0545
+
+    this is default
+
+[33mcommit 9ec93edcec12d6a1ca01b9baf53c507dab58040c[m
+Author: Bishal Rijal <bishalrijal110@gmail.com>
+Date:   Wed May 16 22:47:05 2018 +0545
+
+    initial version created by Django default.
+
+[33mcommit 3520d1e003d53929632046a8f0e46917fc9022c0[m
+Author: bishalrijal110 <bishalrijal110@gmail.com>
+Date:   Wed May 16 21:57:28 2018 +0545
+
+    Initial commit

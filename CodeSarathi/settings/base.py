@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
+    'Mentor.apps.MentorConfig',
+
+    'social_django',
+    'social_core',
+
 ]
 
 MIDDLEWARE = [
@@ -48,11 +53,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
+
+
 ]
 
 ROOT_URLCONF = 'CodeSarathi.urls'
 
+EMAIL_USE_TLS=True
+EMAIL_HOST='stmp.gmail.com'
+EMAIL_HOST_USER='codesarathi@gamil.com'
+EMAIL_HOST_PASSWORD='codesarathi@2018'
+EMAIL_PORT= 587
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -64,7 +78,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+        
+                'social_django.context_processors.backends',  
+                'social_django.context_processors.login_redirect', 
+
                 #'django.core.context_processors.media',
+                
             ],
         },
     },
@@ -107,6 +126,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -125,8 +164,6 @@ USE_TZ =False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_URL = '/static/'
 MEDIA_URL ='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'/media/')
 STATIC_URL = '/static/'
@@ -138,17 +175,11 @@ STATIC_ROOT=os.path.join(os.path.dirname(BASE_DIR),"static/")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 from django.urls import reverse_lazy
-LOGIN_REDIRECT_URL=reverse_lazy('account:blog')
-LOGIN_URL=reverse_lazy('account:login')
-LOGOUT_URL=reverse_lazy('account:logout')
+LOGIN_URL='login'
+LOGOUT_URL=reverse_lazy('logout')
+LOGIN_REDIRECT_URL=reverse_lazy('account:loginr')
 
+SOCIAL_AUTH_LOGIN_REDIRECT_URL=reverse_lazy('Mentor:home')
 
-CORS_REPLACE_HTTPS_REFERER      = False
-HOST_SCHEME                     = "http://"
-SECURE_PROXY_SSL_HEADER         = None
-SECURE_SSL_REDIRECT             = False
-SESSION_COOKIE_SECURE           = False
-CSRF_COOKIE_SECURE              = False
-SECURE_HSTS_SECONDS             = None
-SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
-SECURE_FRAME_DENY               = False
+SOCIAL_AUTH_GITHUB_KEY ='52d6449bef4b4865facf'
+SOCIAL_AUTH_GITHUB_SECRET ='891d2aa85fdeaf40be2020626fd4a38b68502b83'
