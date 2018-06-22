@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,7 +7,7 @@
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href={% static 'css/main_search.css' %}" />
 </head>
 <body>
 
@@ -33,35 +34,16 @@
     <div class="row">
     <div class="col-md-8">
     <div class="container">
+    
+    {% for res in result %}
     <div class="card" style="width: 48rem;">
-        <div class="card-body">
-        <div class="row">
-            <div class="col-4 text-center "><img src="new.jpg" class="rounded-circle" alt="Niranjan Adhikari" width="90" height="90"><br><br>
-            <button type="button" class="btn btn-success">Get Help </button>
-            </div>
-            <div class="col-8">
-                    <h5 class="card-title">Niranjan Adhikari</h5>
-                    <h6>Freelance JavaScript developer in Butwal,Nepal </h6>
-                    <button type="button" class="btn btn-secondary btn-sm">Javascript</button>
-                    <button type="button" class="btn btn-secondary btn-sm">React</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Angular</button><br><br>
-                    <blockquote class="blockquote">
-                            <p><small>"I fell in love with Javascript the day I first used it to create small animations for a website in an era where everyone used flash to achieve the same result.
-                                    I've been using it ever since"</small></p>        
-                    </blockquote>
-            </div>
-        </div>
-        </div>
-    </div>
-    <br>
-    <div class="card" style="width: 28rem;">
             <div class="card-body">
             <div class="row">
                 <div class="col-4 text-center "><img src="new1.jpg" class="rounded-circle" alt="Asish Rijal" width="90" height="90"><br><br>
                 <button type="button" class="btn btn-success">Get Help</button>
                 </div>
                 <div class="col-8">
-                        <h5 class="card-title">Asish Rijal</h5>
+                        <h5 class="card-title">{{res.profile.username}}</h5>
                         <h6>Freelance Python developer in Chitwan,Nepal </h6>
                         <button type="button" class="btn btn-secondary btn-sm">Python</button>
                         <button type="button" class="btn btn-secondary btn-sm">Django</button>
@@ -78,6 +60,7 @@
     
     </div>
     <br>
+    {% endfor %}
     <footer class="py-3 bg-dark">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; CodeSarathi 2018</p>
