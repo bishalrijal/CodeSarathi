@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 manage.*
 CodeSarathi/settings.*
 CodeSarathi/__pycache__
@@ -5,3 +6,8 @@ account/__pycache__
 account/migrations/*.*
 account/migrations/__pycache__/*.*
 media
+=======
+codesarathi/settings/local.py
+CodeSarathi/settings/__pycache__/local.cpython-36.pyc
+.py[cod]
+>>>>>>> 85882f8100c9dbf5d0068a62635376f2ca89b583
