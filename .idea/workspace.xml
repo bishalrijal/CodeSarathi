@@ -1,55 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7f9b9f8-66a5-432a-a4c0-cad136abc3e5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/CodeSarathi/profile/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeSarathi/profile/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeSarathi/profile/new.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeSarathi/profile/new1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodeSarathi/settings/local.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/migrations/0002_auto_20180620_1116.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/acc_activate_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/mentor/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/mentor/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/templates/step2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/tokens.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mentor/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/static/css/main_search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/templates/account/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/templates/search/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/templates/search/new.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/templates/search/new1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/er.groups.get(name='mentor')is not None" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/MentorProfile/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/MentorProfile/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/MentorProfile/new1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/mentor/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/mentor/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ponseRedirect(reverse('Mentorhome'))" afterDir="false" />
+    <list default="true" id="a635b347-d20e-4360-8abc-42bb236ecad2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/chat/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeSarathi/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeSarathi/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeSarathi/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeSarathi/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeSarathi/settings/local.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeSarathi/settings/local.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeSarathi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeSarathi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/01landingpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/01landingpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mentor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mentor/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,25 +21,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="local.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CodeSarathi/settings/local.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chat/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+            <state relative-caret-position="1496">
+              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CodeSarathi/settings/base.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chat/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="153">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,15 +53,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CodeSarathi/settings/local.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/CodeSarathi/settings/base.py" />
+        <option value="$USER_HOME$/PycharmProjects/python/venv/Scripts/django-admin.py" />
+        <option value="$PROJECT_DIR$/CodeSarathi/urls.py" />
+        <option value="$PROJECT_DIR$/account/views.py" />
+        <option value="$PROJECT_DIR$/Mentor/views.py" />
+        <option value="$PROJECT_DIR$/chat/views.py" />
+        <option value="$PROJECT_DIR$/chat/urls.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="564" />
-    <option name="width" value="821" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="670" />
+    <option name="width" value="701" />
     <option name="height" value="730" />
   </component>
   <component name="ProjectView">
@@ -107,7 +72,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -118,20 +82,7 @@
             <path>
               <item name="CodeSarathi main" type="b2602c69:ProjectViewProjectNode" />
               <item name="CodeSarathi main" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CodeSarathi main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CodeSarathi main" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CodeSarathi main" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CodeSarathi main" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CodeSarathi main" type="b2602c69:ProjectViewProjectNode" />
@@ -141,14 +92,17 @@
             <path>
               <item name="CodeSarathi main" type="b2602c69:ProjectViewProjectNode" />
               <item name="CodeSarathi main" type="462c0819:PsiDirectoryNode" />
-              <item name="CodeSarathi" type="462c0819:PsiDirectoryNode" />
-              <item name="settings" type="462c0819:PsiDirectoryNode" />
+              <item name="Mentor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -162,31 +116,59 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CodeSarathi main" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <method>
+        <option name="LaunchBrowser.Before.Run" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" url="127.0.0.1:8000" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a7f9b9f8-66a5-432a-a4c0-cad136abc3e5" name="Default" comment="" />
-      <created>1529669980677</created>
+      <changelist id="a635b347-d20e-4360-8abc-42bb236ecad2" name="Default" comment="" />
+      <created>1529737654761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1529669980677</updated>
+      <updated>1529737654761</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="670" y="0" width="701" height="730" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24886878" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32838285" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.48349836" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -202,34 +184,117 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CodeSarathi/settings/local.py">
+    <entry file="file://$PROJECT_DIR$/CodeSarathi/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        <state relative-caret-position="323">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="85">
+          <caret line="5" column="75" lean-forward="true" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CodeSarathi/settings/local.py">
+    <entry file="file://$PROJECT_DIR$/account/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        <state relative-caret-position="884">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CodeSarathi/settings/base.py">
+    <entry file="file://$PROJECT_DIR$/Mentor/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="221">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeSarathi/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeSarathi/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="75" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mentor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CodeSarathi/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

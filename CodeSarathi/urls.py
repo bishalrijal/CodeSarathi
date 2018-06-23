@@ -19,17 +19,18 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    path('/admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('account/',include('django.contrib.auth.urls')),
 
     path('mentor/',include('Mentor.urls')),
     path('account/',include('account.urls',namespace="account")),
     path('', RedirectView.as_view(url='account/')),
-    path('mentor/oauth/', include('social_django.urls',namespace='social')),
     #path('mentor/oauth/complete/github/',include('social_django.urls',namespace='social')),
     #path('',RedirectView.as_view(url='/account/login/')),
 
-    path('',include('account.urls',namespace="account")),path('', RedirectView.as_view(url='account/')),
+   # path('',include('account.urls',namespace="account")),
+    path('', RedirectView.as_view(url='account/')),
+    path('api/', include('chat.uris')),
     # path('account',RedirectView.as_view(url='/account/login/')),
 ]
 from django.conf import settings 

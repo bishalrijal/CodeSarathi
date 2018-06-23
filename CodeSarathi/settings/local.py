@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    #'Mentor.apps.MentorConfig',
+    'Mentor.apps.MentorConfig',
+    'chat',
 
     'social_django',
     'social_core',
@@ -95,7 +96,7 @@ WSGI_APPLICATION = 'CodeSarathi.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myfirst',
+        'NAME': 'myfirst1',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

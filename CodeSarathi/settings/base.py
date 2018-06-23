@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'Mentor.apps.MentorConfig',
-
+    'chat'
     'social_django',
     'social_core',
 

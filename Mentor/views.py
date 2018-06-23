@@ -24,10 +24,10 @@ def SignUp(request):
         if user_form.is_valid:
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password1'])
+            new_user.groups.add(group)
             new_user.save()
             profile1=Mentor(profile=new_user)
             profile1.save()
-            new_user.groups.add(group)
             return render(request,'step2.html',{'user':new_user})
     else:
         user_form=SignupForm()

@@ -11,7 +11,7 @@ group=Group.objects.get(name='mentee')
 def login(request):
     if request.user is not None:
         logged_in_user=request.user
-        if logged_in_user.groups.get(name='mentor')is not None:
+        if logged_in_user.groups.get(name='mentor') is not None:
             return HttpResponseRedirect(reverse('Mentor:home'))
         elif logged_in_user.groups.get(name='mentee') is not None:
             return HttpResponseRedirect(reverse('account:dashboard'))
@@ -50,10 +50,10 @@ def Register(request):
 
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
+            new_user.groups.add(group)
             new_user.save()
             new_profile=Profile(user=new_user)
             new_profile.save()
-            new_user.groups.add(group)
             return render(request,
                          'account/registration_done.html',
                          {'new_user':new_user}
