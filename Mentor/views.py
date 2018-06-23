@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .form import SignupForm,InfoForm
@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 from .models import Mentor
+from django.urls import reverse
 from django.contrib.auth.models import Group
 group=Group.objects.get(name='mentor')
 @login_required
@@ -25,13 +26,16 @@ def SignUp(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password1'])
             new_user.save()
-            profile1=Mentor(profile=new_user)
-            profile1.save()
             new_user.groups.add(group)
-            return render(request,'step2.html',{'user':new_user})
+            profile=Mentor(profile=new_user)
+            new_user.save()
+            login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')            
+            profile.save()
+            form=InfoForm()
+            return HttpResponseRedirect(reverse('Mentor:step2'))
     else:
         user_form=SignupForm()
-    return render(request,'signup.html',{'form':user_form})
+    return render(request,'signup.html',{'form':user_form},)
 
 def Step2(request):
     if request.method =='POST':
@@ -39,7 +43,7 @@ def Step2(request):
         if user_form.is_valid:
             user_info = user_form.save(commit=False)
             user_info.save()
-            return HttpResponse("now you can log in ")
+            return HttpResponseRedirect(reverse('Mentor:home'))
         else:
             return HttpResponse("invalied data")
     else:

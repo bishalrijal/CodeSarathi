@@ -7,8 +7,9 @@ from django.conf import settings
 from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
+
 group=Group.objects.get(name='mentee')
-def login(request):
+def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
         if logged_in_user.groups.get(name='mentor')is not None:
@@ -51,9 +52,11 @@ def Register(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
+            new_user.groups.add(group)
+            new_user.save()
+            login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
             new_profile=Profile(user=new_user)
             new_profile.save()
-            new_user.groups.add(group)
             return render(request,
                          'account/registration_done.html',
                          {'new_user':new_user}

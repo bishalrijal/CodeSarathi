@@ -16,7 +16,8 @@ class SignupForm(UserCreationForm):
             raise forms.ValidationError('Password don\'t match' )
         return cd['password2']
  
-class InfoForm(forms.Form):
+class InfoForm(forms.ModelForm):
     class Meta:
         model=Mentor
-        fields=['bio','language','rating','github']
+        fields=('bio','languages','github')
+        

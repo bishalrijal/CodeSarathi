@@ -36,15 +36,6 @@ class Profile(models.Model):
     def __repr__(self):
         return 'profile of {}'.format(self.user.username)
 
-# class Mentor(models.Model):
-#     profile=models.OneToOneField(User,on_delete=models.SET_NULL, null=True)
-#     photos=models.ImageField(upload_to='mentor/%Y/%m/%d',blank=True,)
-#     bio = models.CharField(max_length=200,blank=True, null=True)
-#     skill = models.ManyToManyField(TechSkill,related_name='account_skill')
-#     languages=models.ManyToManyField(Languages,related_name='account_language')
-
-    def __str__(self):
-        return '{}'.format(self.profile.username)
 # Create your models here.
 class Post(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE,null=True)

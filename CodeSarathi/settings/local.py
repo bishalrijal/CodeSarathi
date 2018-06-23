@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    #'Mentor.apps.MentorConfig',
+    'Mentor.apps.MentorConfig',
 
     'social_django',
     'social_core',
