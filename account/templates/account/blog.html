@@ -56,10 +56,8 @@
                 {% endfor %}
             </div>
           </li>
-            
-            
           <li class="nav-item ml-auto">
-              <a class="nav-link" href="{% url 'account:logout' %}">logout</a>
+              <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">logout</a>
           </li>
         </ul>
       </div>
@@ -155,6 +153,23 @@
               <p class="m-0 text-center text-white">Copyright &copy; CodeSarathi 2018</p>
             </div>
           </footer>
+
+          <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+              <div class="modal-dialog1 modal-sm">
+                <div class="modal-content">
+                <div class="modal-body">
+                  <p><i class="fa fa-question-circle"></i> Are you sure you want to log-out? <br /></p>
+                  <div class="actionsBtns">
+                      <form action="google.com" method="post">
+                          <a class="btn btn-large btn-danger" href="{% url 'account:login' %}">Logout</a>
+                          <button onclick="" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div id="myModal" class="modal fade" role="dialog">
               <div class="modal-dialog modal-lg">
