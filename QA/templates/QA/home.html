@@ -30,7 +30,7 @@
               edit
               {% else %}
               {% endif %}</a>
-              <a href="">{% if Question.user == request.user %}
+              <a href="{% url 'QA:delete' id=Question.id slug=Question.slug  %}">{% if Question.user == request.user %}
                 delete 
                 {% else %}
                 {% endif %}</a>

@@ -28,7 +28,11 @@ def CreateQuestion(request):
     
     return HttpResponseRedirect(reverse('QA:home'),{'form':question_form})
 
-
+def delete(request,id,slug):
+    question=get_object_or_404(Question,id=id,slug=slug)
+    question.delete()
+    return HttpResponseRedirect(reverse('QA:home'))
+    
 
 
 
