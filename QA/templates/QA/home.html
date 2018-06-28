@@ -6,15 +6,21 @@
       <div class="col-md-8"><br>
       <div class="col-md-8">
         <br>
+        {% if request.user.is_authenticated %}
         <div class="card mb-4">
-            <div class="card-body">
-              <form action="{% url 'QA:create' %}" method="post">
-                {{form.as_p}}
-                {%csrf_token %}
-                <p><input type="submit" value="Post hear"></p>
-            </form>
-            </div>
+          <div class="card-body">
+            <form action="{% url 'QA:create' %}" method="post">
+              {{form.as_p}}
+              {%csrf_token %}
+              <p><input type="submit" value="Post hear"></p>
+          </form>
           </div>
+        </div>
+        
+        {% else %}
+        <p>please log in to create a question </p>
+        {% endif %}
+        
           {% if Questions %}
           {% for Question in Questions %}
           <div class="card mb-4">
@@ -26,11 +32,13 @@
           </div>
           <div class="card-footer text-muted">
              {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
-             <a href="">{% if Question.user == request.user %}
+             {% if Question.user == request.user %}
+             <a href="{% url 'QA:edit' id=Question.id slug=Question.slug %}">
               edit
               {% else %}
               {% endif %}</a>
-              <a href="{% url 'QA:delete' id=Question.id slug=Question.slug  %}">{% if Question.user == request.user %}
+              {% if Question.user == request.user %}
+              <a href="{% url 'QA:delete' id=Question.id slug=Question.slug  %}">
                 delete 
                 {% else %}
                 {% endif %}</a>

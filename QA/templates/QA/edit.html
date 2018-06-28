@@ -1,0 +1,8 @@
+{% extends "QAbase.html" %}
+{% block content %}
+<form action="{% url 'QA:edit' id=Question.id slug=Question.slug%}" method="post">
+    {{form.as_p}}
+    {%csrf_token %}
+    <p><input type="submit" value="Post hear"></p>
+</form>
+{% endblock content %}

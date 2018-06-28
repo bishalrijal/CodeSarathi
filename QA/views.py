@@ -26,12 +26,26 @@ def CreateQuestion(request):
     else:
         question_form=QuestionForm()
     
-    return HttpResponseRedirect(reverse('QA:home'),{'form':question_form})
+    return HttpResponseRedirect(reverse('QA:home'),)
 
 def delete(request,id,slug):
     question=get_object_or_404(Question,id=id,slug=slug)
     question.delete()
     return HttpResponseRedirect(reverse('QA:home'))
+
+def editquestion(request,id,slug):
+    question=get_object_or_404(Question,id=id,slug=slug)
+    if request.method=='POST':
+        editform=QuestionForm(instance=question,data=request.POST)
+        if editform.is_valid:
+
+            editform.save()
+            return HttpResponseRedirect(reverse('QA:home'))
+    else:
+        editform=QuestionForm(instance=question)
+
+    return render(request,'QA/edit.html',{'form':editform,'Question':question})
+
     
 
 
