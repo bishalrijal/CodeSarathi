@@ -12,6 +12,7 @@ class TechSkillAdmin(admin.ModelAdmin):
 class LanguagesAdmin(admin.ModelAdmin):
     model=Languages
     list_display=['name']
+    prepopulated_fields = {'slug': ('name',)}
 
 # class MentorAdmin(admin.ModelAdmin):
 #     model= Mentor

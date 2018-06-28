@@ -31,7 +31,6 @@ def SignUp(request):
             new_user.save()
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')            
             profile.save()
-            form=InfoForm()
             return HttpResponseRedirect(reverse('Mentor:step2'))
     else:
         user_form=SignupForm()

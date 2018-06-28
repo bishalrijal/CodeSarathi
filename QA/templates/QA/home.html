@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8"><br>
+      <div class="col-md-8">
+        <br>
+        <div class="card mb-4">
+            <div class="card-body">
+              <form action="{% url 'QA:create' %}" method="post">
+                {{form.as_p}}
+                {%csrf_token %}
+                <p><input type="submit" value="Post hear"></p>
+            </form>
+            </div>
+          </div>
+          {% if Questions %}
+          {% for Question in Questions %}
+          <div class="card mb-4">
+          <div class="card-body">
+
+            <h2 class="card-title">{{ Question.title }}</h2>
+            <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
+            <a href="#" class="btn btn-success">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+             {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
+             <a href="">{% if Question.user == request.user %}
+              edit
+              {% else %}
+              {% endif %}</a>
+              <a href="">{% if Question.user == request.user %}
+                delete 
+                {% else %}
+                {% endif %}</a>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>there is no post </p>
+        {% endif %}
+
+        {% include "account/pagination.html" with page=posts %}
+
+      </div>
+
+
+{% endblock content %}

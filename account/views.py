@@ -8,13 +8,13 @@ from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
 
-group=Group.objects.get(name='mentee')
+#group=Group.objects.get(name='mentee')
 def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
-        if logged_in_user.groups.get(name='mentor')is not None:
+        if logged_in_user.groups.get().name=='mentor':
             return HttpResponseRedirect(reverse('Mentor:home'))
-        elif logged_in_user.groups.get(name='mentee') is not None:
+        elif logged_in_user.groups.get().name=='mentee':
             return HttpResponseRedirect(reverse('account:dashboard'))
         else:
             return HttpResponse("user is not valied !!")
@@ -25,8 +25,6 @@ def firstpage(request):
 
 def Dashboard(request):
     logged_in_user = request.user
-    if logged_in_user.groups.get(name='mentor')is not None:
-        return HttpResponseRedirect(reverse('Mentor:home'))
     pic=Profile.objects.get(user=logged_in_user)
     picture=pic.photos
     logged_in_user_posts = Post.objects.filter(user=logged_in_user)
@@ -52,7 +50,7 @@ def Register(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            new_user.groups.add(group)
+            #new_user.groups.add(group)
             new_user.save()
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
             new_profile=Profile(user=new_user)
@@ -125,6 +123,7 @@ def edit_profile(request):
                     })
 
 from django.db.models import Q
+from Mentor.models import Mentor
 def MentorSearch(request,slug):
     query=slug
     if query:
