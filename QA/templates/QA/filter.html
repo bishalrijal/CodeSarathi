@@ -2,7 +2,7 @@
 {% block content %}
 <a href="">askquestion   </a>
 <a href="">filterquestion  </a>
-<a href="{% url 'QA:myquestion' %}">myquestions  </a>
+<a href="">myquestion  </a>
 <a href="">myanswer   </a>
 
 <div class="container">
@@ -10,21 +10,6 @@
       <div class="col-md-8"><br>
       <div class="col-md-8">
         <br>
-        {% if request.user.is_authenticated %}
-        <div class="card mb-4">
-          <div class="card-body">
-            <form action="{% url 'QA:create' %}" method="post">
-              {{form.as_p}}
-              {%csrf_token %}
-              <p><input type="submit" value="Post hear"></p>
-          </form>
-          </div>
-        </div>
-        
-        {% else %}
-        <p>please log in to create a question </p>
-        {% endif %}
-        
           {% if Questions %}
           {% for Question in Questions %}
           <div class="card mb-4">

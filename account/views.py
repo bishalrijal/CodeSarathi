@@ -27,20 +27,19 @@ def Dashboard(request):
     logged_in_user = request.user
     pic=Profile.objects.get(user=logged_in_user)
     picture=pic.photos
-    logged_in_user_posts = Post.objects.filter(user=logged_in_user)
+    posts = BlogPost.objects.filter(author=logged_in_user)
     if request.method == 'POST':
         Post_form = PostForm(data=request.POST)
         if Post_form.is_valid():
             new_Post = Post_form.save(commit=False)
             new_Post = Post_form.save()
-            #new_Post.post = logged_in_user.posts
-            #feed.user.add(*[request.user])
-           # print(logged_in_user)
-           # if request.user.is_authenticated:
-            #    new_Post.created_by=request.user
-            new_Post.user_id=request.user.id
+            new_Post.author=request.user
+            new_Post.slug=new_Post.title
             new_Post.save()
-    return render(request,'account/dashboard.html',{'posts': logged_in_user_posts,'post_form':PostForm,'media_url':settings.MEDIA_URL})
+            return HttpResponseRedirect(reverse('account:dashboard'))
+    else:
+        Post_form=PostForm()
+    return render(request,'account/dashboard.html',{'posts':posts,'post_form':Post_form,'media_url':settings.MEDIA_URL})
     
 def Register(request):
     if request.method == 'POST':

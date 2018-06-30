@@ -25,7 +25,6 @@ admin.site.register(Languages,LanguagesAdmin)
 
 
 #admin.site.register(Profile)
-admin.site.register(Post)
 #------------------------------------------------------------------------------------------------------------
 from django.contrib import admin
 from .models import BlogPost,Comment,Profile,TechSkill,Languages

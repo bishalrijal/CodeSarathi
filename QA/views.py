@@ -1,16 +1,18 @@
 from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from .form import QuestionForm
 from django.contrib import messages
 from django.urls import reverse
 from .models import Question,Answer
+from account.models import Languages
 from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     question=Question.objects.all()
     question_form=QuestionForm()
-    return render(request,'QA/home.html',{'Questions':question,'form':question_form})
+    language=Languages.objects.all()
+    return render(request,'QA/home.html',{'Questions':question,'form':question_form,'languages':language})
 
 
 def CreateQuestion(request):
@@ -32,6 +34,25 @@ def delete(request,id,slug):
     question=get_object_or_404(Question,id=id,slug=slug)
     question.delete()
     return HttpResponseRedirect(reverse('QA:home'))
+
+
+def filter(request,slug):
+    lang=slug
+    if lang:
+        result=Question.objects.filter(related__name=lang)
+        return render(request,'QA/filter.html',{'Questions':result})
+    else:
+        return HttpResponse('this is not valid Querry')
+
+@login_required
+def myquestion(request):
+    if request.user.is_authenticated:
+        result=Question.objects.filter(user=request.user)
+        return render(request,'QA/myquestion.html',{'Questions':result})
+    else:
+        return HttpResponse('this is not valid Querry')
+
+
 
 def editquestion(request,id,slug):
     question=get_object_or_404(Question,id=id,slug=slug)

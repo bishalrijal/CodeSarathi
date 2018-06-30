@@ -36,31 +36,6 @@ class Profile(models.Model):
     def __repr__(self):
         return 'profile of {}'.format(self.user.username)
 
-# Create your models here.
-class Post(models.Model):
-    user= models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    #created_by = models.ForeignKey(Profile,on_delete=False)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    post= models.TextField(max_length=250,null=True)
-
-    class Meta:
-        ordering =('-created',)
-
-    @property
-    def _str__(self):
-        return 'Post of {}'.format(self.user.username)
-        #return self.user.user
-
-"""@receiver(post_save,sender=User)
-def create_user_profile(sender,instance,created,**kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save,sender=User)
-def save_user_profile(sender,instance,**kwargs):
-    instance.profile.save()
-"""
 #-----------------------------------------------------------------------------------------------------blog
 from django.utils import timezone
 from django.urls import reverse
@@ -90,7 +65,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User,
                                related_name='blog_posts',
                                null=True,on_delete=True)
-    body = models.CharField(max_length=500,blank=True)
+    body = models.TextField(blank=True)
     publish = models.DateTimeField(default=timezone.now,null=True)
     created = models.DateTimeField(auto_now_add=True,null=True)
     updated = models.DateTimeField(auto_now=True,null=True)
@@ -101,6 +76,8 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    
 
 class Comment(models.Model):
     post = models.ForeignKey(BlogPost, related_name='comments',on_delete=False)
