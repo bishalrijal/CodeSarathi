@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'Mentor.apps.MentorConfig',
     'chat',
-
+    'rest_framework',
+    'rest_framework.authtoken',
     'social_django',
     'social_core',
 

@@ -30,7 +30,7 @@ urlpatterns = [
 
    # path('',include('account.urls',namespace="account")),
     path('', RedirectView.as_view(url='account/')),
-    path('api/', include('chat.uris')),
+    path('api/', include('chat.urls')),
     # path('account',RedirectView.as_view(url='/account/login/')),
 ]
 from django.conf import settings 
