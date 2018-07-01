@@ -78,7 +78,7 @@ def detail(request,slug,id):
             newanswer.user=request.user
             newanswer.question=question
             newanswer.save()
-            return HttpResponseRedirect(reverse('QA:detail'))
+            return HttpResponseRedirect(reverse('QA:detail',kwargs={'slug':question.slug,'id':question.id}))
     else:
         answerform=AnswerForm()
         return render(request,'QA/answer.html',{'question':question,'Answers':Answers,'answerform':answerform})
