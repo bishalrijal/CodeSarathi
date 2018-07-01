@@ -10,4 +10,6 @@ urlpatterns=[
     path('edit/<int:id>/<slug:slug>',views.editquestion,name='edit'),
     path('filter-<slug:slug>',views.filter,name='filter'),
     path('myquestion',views.myquestion,name='myquestion'),
+    path('<int:id>/<slug:slug>',views.detail,name='detail')
+
 ]

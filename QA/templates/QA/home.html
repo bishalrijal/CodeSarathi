@@ -25,9 +25,9 @@
           <div class="card mb-4">
           <div class="card-body">
 
-            <h2 class="card-title">{{ Question.title }}</h2>
+            <h2 class="card-title"><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
             <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
-            <a href="#" class="btn btn-success">Read More &rarr;</a>
+            
           </div>
           <div class="card-footer text-muted">
              {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>

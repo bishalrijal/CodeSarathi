@@ -67,10 +67,19 @@ def editquestion(request,id,slug):
 
     return render(request,'QA/edit.html',{'form':editform,'Question':question})
 
+from .form import AnswerForm
+def detail(request,slug,id):
+    question=get_object_or_404(Question,slug=slug,id=id)
+    Answers=Answer.objects.filter(question=question)
+    if request.method == 'POST':
+        answerform=AnswerForm(data=request.POST)
+        if answerform.is_valid():
+            newanswer=answerform.save(commit=False)
+            newanswer.user=request.user
+            newanswer.question=question
+            newanswer.save()
+            return HttpResponseRedirect(reverse('QA:detail'))
+    else:
+        answerform=AnswerForm()
+        return render(request,'QA/answer.html',{'question':question,'Answers':Answers,'answerform':answerform})
     
-
-
-
-
-
-        
