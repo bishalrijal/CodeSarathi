@@ -50,6 +50,7 @@ def Register(request):
 
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
             new_user.groups.add(group)
             new_user.save()
             new_profile=Profile(user=new_user)
