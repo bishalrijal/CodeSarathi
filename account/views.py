@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect 
 from django.contrib.auth import authenticate, login
-from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm
+from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm,UserEditForm,ProfileEditForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
