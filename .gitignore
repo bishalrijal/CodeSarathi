@@ -1,4 +1,14 @@
+
 CodeSarathi/settings/local.py
+=======
+manage.*
+CodeSarathi/settings.*
+CodeSarathi/__pycache__
+account/__pycache__
+account/migrations/*.*
+account/migrations/__pycache__/*.*
+media
+codesarathi/settings/local.py
 CodeSarathi/settings/__pycache__/local.cpython-36.pyc
 CodeSarathi/__pycache__/__init__.cpython-36.pyc
            CodeSarathi/__pycache__/urls.cpython-36.pyc

@@ -7,11 +7,9 @@
 <div class="topnav-right">
            <!--<img src="{{media_url}}{{ pic }}" alt="no image" height="200" width="250" border="1"/>-->
 
-            <a href="">About</a>
-            <a href="">Become a mentor</a>
-     <a href="{% url 'account:login' %}">login</a>
-    <a href="{% url 'account:logout' %}">logout</a>
-        <a href="{% url 'account:register' %}">Sign-up</a>
+            <a href="">dashboard</a>
+            <a href="">profile</a>
+        <a href="">post</a>
      </div>
 
 <form action="{{dashboard}}" method="post">
@@ -24,7 +22,9 @@
 
 </p>
 {% for post in posts %}
-{{post.post}}
+{{post.title}} <br>
+{{post.body}} <br>
+<br>
 {% endfor %}
 
 {% endblock content %}

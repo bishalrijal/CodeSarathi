@@ -32,13 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Login</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'account:login' %}">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{% url 'account:register' %}">SignUp</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Become a Mentor</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'Mentor:signup' %}">Become a Mentor</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="">About</a>
@@ -59,7 +59,11 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">On-demand marketplace for software developers</p>
+
             <a class="btn btn-success btn-xl js-scroll-trigger" href="{% url 'account:blog' %}"> Get Help</a>
+=======
+            <a class="btn btn-success btn-xl js-scroll-trigger" href="{% url 'QA:home' %}">Get Help</a>
+
           </div>
         </div>
       </div>

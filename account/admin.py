@@ -12,22 +12,22 @@ class TechSkillAdmin(admin.ModelAdmin):
 class LanguagesAdmin(admin.ModelAdmin):
     model=Languages
     list_display=['name']
+    prepopulated_fields = {'slug': ('name',)}
 
-class MentorAdmin(admin.ModelAdmin):
-    model= Mentor
-    list_display=['profile',]
+# class MentorAdmin(admin.ModelAdmin):
+#     model= Mentor
+#     list_display=['profile',]
 
 admin.site.register(Profile,ProfileAdmin)
 admin.site.register(TechSkill,TechSkillAdmin)
 admin.site.register(Languages,LanguagesAdmin)
-admin.site.register(Mentor,MentorAdmin)
+# admin.site.register(Mentor,MentorAdmin)
 
 
 #admin.site.register(Profile)
-admin.site.register(Post)
 #------------------------------------------------------------------------------------------------------------
 from django.contrib import admin
-from .models import BlogPost,Comment,Profile,TechSkill,Languages,Mentor
+from .models import BlogPost,Comment,Profile,TechSkill,Languages
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish',
                     'status')

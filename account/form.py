@@ -1,15 +1,17 @@
 from django import forms
 from .models import Comment
+from django.contrib.auth.models import User
+from .models import Profile,BlogPost
 class LoginForm(forms.Form):
+    class Meta:
+        model=User
+        fields=('username','password')
     username=forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholer':'Username','id':'id="exampleDropdownFormEmail1"'}))
     password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password','id':'exampleDropdownFormPassword1'}))
-
-from django.contrib.auth.models import User
-from .models import Profile,Post
 class PostForm(forms.ModelForm):
     class Meta:
-        model =Post
-        fields =('post',)
+        model =BlogPost
+        fields =('title','body')
 
 class UserRegistrationForm(forms.ModelForm):
     password=forms.CharField(label='Password',
@@ -30,7 +32,7 @@ class UserRegistrationForm(forms.ModelForm):
     def clean_password2(self):
         cd=self.cleaned_data
         if cd['password']!=cd['password2']:
-            raise forms.ValidationError('Password don\'t mathch' )
+            raise forms.ValidationError('Password don\'t match' )
         return cd['password2']
 
 class UserEditForm(forms.ModelForm):
