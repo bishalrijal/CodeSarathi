@@ -1,5 +1,7 @@
 {% extends "QAbase.html" %}
 {% block content %}
+{% for question in questions  %}
+
 <div class="container">
 
     <div class="row">
@@ -36,7 +38,7 @@
         <hr>
 
 
-        <!-- comments -->
+        <!-- answer -->
         <div class="card my-4">
           <h5 class="card-header">Answers:</h5>
           {% if answerform %}
@@ -54,21 +56,27 @@
                   </div>
 
         {% for answer in Answers %}
+        {% if answer.question == question %}
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">{{ answer.user }}</h5>
-            <h6 class="mt-o">{{ answer.pub_date }}</h6><br>
-            {{ answer.answertext|linebreaks }}
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">{{ answer.user }}</h5>
+              <h6 class="mt-o">{{ answer.pub_date }}</h6><br>
+              {{ answer.answertext|linebreaks }}
+            </div>
           </div>
-        </div>
-        {% empty %}
-        <p>There are no comments yet.</p>
+          {% else %}
+          {% endif %}
+          {% empty %}
+          <p>There are no answer yet.</p>
+        
+       
+        
         {% endfor %}
 
 
 
       </div>
 
-
+      {% endfor %}
 {% endblock content %}

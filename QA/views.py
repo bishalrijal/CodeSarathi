@@ -83,3 +83,20 @@ def detail(request,slug,id):
         answerform=AnswerForm()
         return render(request,'QA/answer.html',{'question':question,'Answers':Answers,'answerform':answerform})
     
+def Distinct(answer):
+    li=[]
+    for Ans in answer:
+        li.append(Ans.question.id)
+    li=list(set(li))
+    return li
+login_required
+def myanswer(request):
+    if request.user.is_authenticated :
+        ans=Answer.objects.filter(user=request.user)
+        ansid=Distinct(ans)
+        question=Question.objects.filter(id__in=ansid)
+        answer=Answer.objects.filter(question__in=question,user=request.user)
+        return render(request,'QA/myanswer.html',{'questions':question,'Answers':answer})
+
+
+
