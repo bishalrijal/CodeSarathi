@@ -1,6 +1,6 @@
 
 CodeSarathi/settings/local.py
-=======
+
 manage.*
 CodeSarathi/settings.*
 CodeSarathi/__pycache__
@@ -29,3 +29,5 @@ CodeSarathi/__pycache__/__init__.cpython-36.pyc
 .py[cod]
 .idea/workspace.xml
 .idea/tasks.xml
+
+
