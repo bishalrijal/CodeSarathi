@@ -9,15 +9,6 @@ from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
 
 group=Group.objects.get(name='mentee')
-def login(request):
-    if request.user is not None:
-        logged_in_user=request.user
-        if logged_in_user.groups.get(name='mentor') is not None:
-            return HttpResponseRedirect(reverse('Mentor:home'))
-        elif logged_in_user.groups.get(name='mentee') is not None:
-
-
-#group=Group.objects.get(name='mentee')
 def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
@@ -35,10 +26,6 @@ def firstpage(request):
 
 def Dashboard(request):
     logged_in_user = request.user
-    if logged_in_user.groups.get(name='mentor')is not None:
-        return HttpResponseRedirect(reverse('Mentor:home'))
-    pic=Profile.objects.get(user=logged_in_user)
-    picture=pic.photos
     posts = BlogPost.objects.filter(author=logged_in_user)
     if request.method == 'POST':
         Post_form = PostForm(data=request.POST)
@@ -63,9 +50,6 @@ def Register(request):
             new_user.save()
 
             new_user.groups.add(group)
-            new_user.save()
-
-           #new_user.groups.add(group)
             new_user.save()
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
 

@@ -11,11 +11,7 @@ urlpatterns=[
     path('blog',views.post_list,name='blog'),
     path('<int:year>/<int:month>/<int:day>/<slug:slug>',views.post_detail,name='post_detail'),
     path('login',authView.LoginView.as_view(template_name='registration/login.html'),name='login'),
-<<<<<<< HEAD
-    path('loginredirect',views.login,name='loginr'),
-=======
     path('loginredirect',views.loginredirect,name='loginr'),
->>>>>>> master
     path('dashboard',views.Dashboard,name='dashboard'),
     path('register',views.Register,name='register'),
     path('logout',authView.LogoutView.as_view(template_name='registration/logout.html'),name='logout'),

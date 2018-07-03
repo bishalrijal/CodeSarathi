@@ -1,11 +1,8 @@
 from django import forms
 from .models import Comment
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-from .models import Profile,Post
-=======
+
 from .models import Profile,BlogPost
->>>>>>> master
 class LoginForm(forms.Form):
     class Meta:
         model=User

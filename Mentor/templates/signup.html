@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-{% extends "base.html" %}
-     {% block content %}  
-        <h2>Sign up</h2>
-        <form method="post">
-=======
+
 {% extends "mentor_base.html" %}
      {% block content %}  
         <h2>Sign up</h2>
         <form action="{% url 'Mentor:signup' %}" method="post">
->>>>>>> master
             {% csrf_token %}
               {% for field in form %}
               <p>

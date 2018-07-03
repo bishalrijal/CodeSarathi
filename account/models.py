@@ -36,7 +36,6 @@ class Profile(models.Model):
     def __repr__(self):
         return 'profile of {}'.format(self.user.username)
 
-<<<<<<< HEAD
 # class Mentor(models.Model):
 #     profile=models.OneToOneField(User,on_delete=models.SET_NULL, null=True)
 #     photos=models.ImageField(upload_to='mentor/%Y/%m/%d',blank=True,)
@@ -71,8 +70,8 @@ def create_user_profile(sender,instance,created,**kwargs):
 def save_user_profile(sender,instance,**kwargs):
     instance.profile.save()
 """
-=======
->>>>>>> master
+
+
 #-----------------------------------------------------------------------------------------------------blog
 from django.utils import timezone
 from django.urls import reverse
