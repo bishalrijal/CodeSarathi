@@ -1,7 +1,11 @@
 from django import forms
 from .models import Comment
 from django.contrib.auth.models import User
+<<<<<<< HEAD
 from .models import Profile,Post
+=======
+from .models import Profile,BlogPost
+>>>>>>> master
 class LoginForm(forms.Form):
     class Meta:
         model=User
@@ -10,8 +14,8 @@ class LoginForm(forms.Form):
     password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password','id':'exampleDropdownFormPassword1'}))
 class PostForm(forms.ModelForm):
     class Meta:
-        model =Post
-        fields =('post',)
+        model =BlogPost
+        fields =('title','body')
 
 class UserRegistrationForm(forms.ModelForm):
     password=forms.CharField(label='Password',

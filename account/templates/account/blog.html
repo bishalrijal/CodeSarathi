@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 {% load static %}
-
 <html>
 
 <head>
@@ -19,6 +18,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<<<<<<< HEAD
             <div class="container">
               <a class="navbar-brand" href="{% url 'account:firstpage' %}">CodeSarathi</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,12 +55,43 @@
               </a>
               
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+=======
+      <a class="navbar-brand" href="{% url 'account:firstpage' %}">CodeSarathi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% load staticfiles %}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:register' %}">Sign Up</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'account:login' %}">login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'Mentor:signup' %}">Become a mentor</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Find a mentor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+>>>>>>> master
                 {% for tech in skill %}
                 <h6 class="dropdown-header font-weight-bold">{{tech.skill_name}}</h6>
                 {% for lang in tech.languages.all %}
                 <a class="dropdown-item" href="{% url 'account:searchmentor' slug=lang.slug %}" >{{lang.name}}</a>
                
                 {% endfor %}
+<<<<<<< HEAD
                 <div class="dropdown-divider"></div>
                 {% endfor %}
               </div>
@@ -87,15 +118,31 @@
 
     </nav>
     
+=======
+                <div class="dropdown-divider"></div>
+                {% endfor %}
+            </div>
+          </li>
+          <li class="nav-item ml-auto">
+              <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">logout</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+>>>>>>> master
 
+  <!-- body -->
           <div class="container">
             <div class="row">
               <div class="col-md-8"><br>
                 {% if posts %}
+<<<<<<< HEAD
                 
               
               <div class="col-md-8">
                 <br>
+=======
+>>>>>>> master
                 <div class="card mb-4">
                     <div class="card-body">
                       <h6 data-toggle="modal" data-target="#myModal" class="card-subtitle mb-2 text-muted lead "><small>Dilip Gautam</small></h6>
@@ -172,18 +219,32 @@
                     </div>
                   </div>
                 </div>
-      
               </div>
-      
             </div>
-      
-          </div>
+           </div>
       
           <footer class="py-3 bg-dark">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; CodeSarathi 2018</p>
             </div>
           </footer>
+
+          <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+              <div class="modal-dialog1 modal-sm">
+                <div class="modal-content">
+                <div class="modal-body">
+                  <p><i class="fa fa-question-circle"></i> Are you sure you want to log-out? <br /></p>
+                  <div class="actionsBtns">
+                      <form action="google.com" method="post">
+                          <a class="btn btn-large btn-danger" href="{% url 'account:login' %}">Logout</a>
+                          <button onclick="" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div id="myModal" class="modal fade" role="dialog">
               <div class="modal-dialog modal-lg">

@@ -39,9 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'Mentor.apps.MentorConfig',
+<<<<<<< HEAD
     'chat',
     'rest_framework',
     'rest_framework.authtoken',
+=======
+    'QA',
+>>>>>>> master
     'social_django',
     'social_core',
 
@@ -95,6 +99,7 @@ WSGI_APPLICATION = 'CodeSarathi.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'myfirst1',
@@ -107,6 +112,15 @@ DATABASES = {
            #
              'sql_mode': 'traditional',
         }
+=======
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'codesarathi',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432'
+>>>>>>> master
 
     }
 }

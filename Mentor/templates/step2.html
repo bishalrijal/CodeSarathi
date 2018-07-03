@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
      {% block content %}  
         <h2>Provide your information here</h2>
@@ -15,6 +16,17 @@
                 {% endfor %}
               </p>
               {% endfor %}
+=======
+{% extends "mentor_base.html" %}
+     {% block content %}  
+        <h2>Dear, {{user.username}}Provide your information here</h2>
+        
+        <form action="{% url 'Mentor:step2' %}" method="post">
+            {% csrf_token %}
+              <div name ='form'>
+                {{form.as_p}}
+              </div>
+>>>>>>> master
             <button type="submit">Submit</button>
           </form>
     {% endblock content %} 

@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'Mentor.apps.MentorConfig',
+<<<<<<< HEAD
     'chat'
+=======
+
+>>>>>>> master
     'social_django',
     'social_core',
 
@@ -53,11 +57,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
 
     'whitenoise.middleware.WhiteNoiseMiddleware'
     'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
 
 
+=======
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+>>>>>>> master
 ]
 
 ROOT_URLCONF = 'CodeSarathi.urls'

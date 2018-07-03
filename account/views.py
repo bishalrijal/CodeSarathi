@@ -7,6 +7,7 @@ from django.conf import settings
 from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
+
 group=Group.objects.get(name='mentee')
 def login(request):
     if request.user is not None:
@@ -14,6 +15,16 @@ def login(request):
         if logged_in_user.groups.get(name='mentor') is not None:
             return HttpResponseRedirect(reverse('Mentor:home'))
         elif logged_in_user.groups.get(name='mentee') is not None:
+
+
+#group=Group.objects.get(name='mentee')
+def loginredirect(request):
+    if request.user is not None:
+        logged_in_user=request.user
+        if logged_in_user.groups.get().name=='mentor':
+            return HttpResponseRedirect(reverse('Mentor:home'))
+        elif logged_in_user.groups.get().name=='mentee':
+
             return HttpResponseRedirect(reverse('account:dashboard'))
         else:
             return HttpResponse("user is not valied !!")
@@ -28,20 +39,19 @@ def Dashboard(request):
         return HttpResponseRedirect(reverse('Mentor:home'))
     pic=Profile.objects.get(user=logged_in_user)
     picture=pic.photos
-    logged_in_user_posts = Post.objects.filter(user=logged_in_user)
+    posts = BlogPost.objects.filter(author=logged_in_user)
     if request.method == 'POST':
         Post_form = PostForm(data=request.POST)
         if Post_form.is_valid():
             new_Post = Post_form.save(commit=False)
             new_Post = Post_form.save()
-            #new_Post.post = logged_in_user.posts
-            #feed.user.add(*[request.user])
-           # print(logged_in_user)
-           # if request.user.is_authenticated:
-            #    new_Post.created_by=request.user
-            new_Post.user_id=request.user.id
+            new_Post.author=request.user
+            new_Post.slug=new_Post.title
             new_Post.save()
-    return render(request,'account/dashboard.html',{'posts': logged_in_user_posts,'post_form':PostForm,'media_url':settings.MEDIA_URL})
+            return HttpResponseRedirect(reverse('account:dashboard'))
+    else:
+        Post_form=PostForm()
+    return render(request,'account/dashboard.html',{'posts':posts,'post_form':Post_form,'media_url':settings.MEDIA_URL})
     
 def Register(request):
     if request.method == 'POST':
@@ -51,8 +61,14 @@ def Register(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
+
             new_user.groups.add(group)
             new_user.save()
+
+           #new_user.groups.add(group)
+            new_user.save()
+            login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
+
             new_profile=Profile(user=new_user)
             new_profile.save()
             return render(request,
@@ -123,6 +139,8 @@ def edit_profile(request):
                     })
 
 from django.db.models import Q
+from Mentor.models import Mentor
+
 def MentorSearch(request,slug):
     query=slug
     if query:

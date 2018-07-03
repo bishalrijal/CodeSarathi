@@ -1,0 +1,71 @@
+{% extends "QAbase.html" %}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+
+
+      <div class="col-lg-8">
+
+
+        <h1 class="mt-4">{{ question.title }}</h1>
+
+
+        <p class="lead">
+          by
+          <a href="#">{{ question.user }}</a>
+        </p>
+
+        <hr>
+
+
+        <p>Posted on {{ question.pub_date }}</p>
+
+
+
+
+        <hr>
+
+
+        </p>
+      {{ question.description|linebreaks }}
+        <p>
+        <a href="">
+        Share this post
+          </a>
+        <hr>
+
+
+        <!-- comments -->
+        <div class="card my-4">
+          <h5 class="card-header">Answers:</h5>
+          <div class="card-body">
+            <form action="{% url 'QA:detail' slug=question.slug id=question.id %}" method="post">
+
+              {{ answerform.as_p }}
+              {% csrf_token %}
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        {% for answer in Answers %}
+        <div class="media mb-4">
+          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{ answer.user }}</h5>
+            <h6 class="mt-o">{{ answer.pub_date }}</h6><br>
+            {{ answer.answertext|linebreaks }}
+          </div>
+        </div>
+        {% empty %}
+        <p>There are no comments yet.</p>
+        {% endfor %}
+
+
+
+      </div>
+
+
+{% endblock content %}

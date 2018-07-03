@@ -5,27 +5,13 @@ manage.*
 CodeSarathi/settings.*
 CodeSarathi/__pycache__
 account/__pycache__
-account/migrations/*.*
-account/migrations/__pycache__/*.*
+account/migrations
+account/migrations/__pycache__
 media
 codesarathi/settings/local.py
-CodeSarathi/settings/__pycache__/local.cpython-36.pyc
-CodeSarathi/__pycache__/__init__.cpython-36.pyc
-           CodeSarathi/__pycache__/urls.cpython-36.pyc
-          CodeSarathi/__pycache__/wsgi.cpython-36.pyc 
-        CodeSarathi/settings/__pycache__/__init__.cpython-36.pyc
-         CodeSarathi/settings/__pycache__/base.cpython-36.pyc
-        CodeSarathi/settings/__pycache__/local.cpython-36.pyc
-         CodeSarathi/settings/__pycache__/production.cpython-36.pyc
-            account/__pycache__/admin.cpython-36.pyc
-          account/__pycache__/apps.cpython-36.pyc
-           account/__pycache__/form.cpython-36.pyc
-        account/__pycache__/models.cpython-36.pyc
-          account/__pycache__/urls.cpython-36.pyc
-         account/__pycache__/views.cpython-36.pyc
-          account/migrations/__pycache__/0001_initial.cpython-36.pyc
-         account/migrations/__pycache__/__init__.cpython-36.pyc
-
+CodeSarathi/settings/__pycache__
+CodeSarathi/__pycache__
+CodeSarathi/__pycache__
 .py[cod]
 .idea/workspace.xml
 .idea/tasks.xml

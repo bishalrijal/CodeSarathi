@@ -32,6 +32,8 @@ urlpatterns = [
     path('', RedirectView.as_view(url='account/')),
 
     # path('account',RedirectView.as_view(url='/account/login/')),
+    path('mentor/',include('Mentor.urls',namespace='Mentor')),
+    path('questions/',include('QA.urls',namespace='QA'))
 ]
 from django.conf import settings 
 from django.conf.urls.static import static

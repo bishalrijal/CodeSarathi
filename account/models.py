@@ -36,6 +36,7 @@ class Profile(models.Model):
     def __repr__(self):
         return 'profile of {}'.format(self.user.username)
 
+<<<<<<< HEAD
 # class Mentor(models.Model):
 #     profile=models.OneToOneField(User,on_delete=models.SET_NULL, null=True)
 #     photos=models.ImageField(upload_to='mentor/%Y/%m/%d',blank=True,)
@@ -70,6 +71,8 @@ def create_user_profile(sender,instance,created,**kwargs):
 def save_user_profile(sender,instance,**kwargs):
     instance.profile.save()
 """
+=======
+>>>>>>> master
 #-----------------------------------------------------------------------------------------------------blog
 from django.utils import timezone
 from django.urls import reverse
@@ -99,7 +102,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User,
                                related_name='blog_posts',
                                null=True,on_delete=True)
-    body = models.CharField(max_length=500,blank=True)
+    body = models.TextField(blank=True)
     publish = models.DateTimeField(default=timezone.now,null=True)
     created = models.DateTimeField(auto_now_add=True,null=True)
     updated = models.DateTimeField(auto_now=True,null=True)
@@ -110,6 +113,8 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    
 
 class Comment(models.Model):
     post = models.ForeignKey(BlogPost, related_name='comments',on_delete=False)
