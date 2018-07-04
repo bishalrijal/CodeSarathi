@@ -12,6 +12,7 @@ media
 Mentor/migrations
 QA/migrations
 Mentor/__pycache__
+mysite.log
 
 
 .py[cod]g
