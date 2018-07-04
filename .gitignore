@@ -1,8 +1,8 @@
 
 CodeSarathi/settings/local.py
 
-manage.*
-CodeSarathi/settings.*
+manage.py
+CodeSarathi/settings
 CodeSarathi/__pycache__
 account/__pycache__
 account/migrations
@@ -16,11 +16,17 @@ CodeSarathi/__pycache__
 .idea/workspace.xml
 .idea/tasks.xml
 Mentor/__pycache__
-Mentor/migrations/__pycache__
-chat/migrations/__pycache__
+Mentor/migrations
+chat/migrations
 QA/__pycache__
 chat/__pycache__
 Mentor/migrations
 QA/migrations
 QA/migrations/__pycache__
+.idea
+QA/migrations
+mysite.log
+.py[cod]g
+
+
 

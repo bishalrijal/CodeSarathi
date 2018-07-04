@@ -7,7 +7,7 @@
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href={% static 'css/main_search.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main_search.css' %}" />
 </head>
 <body>
 
@@ -39,18 +39,20 @@
     <div class="card" style="width: 48rem;">
             <div class="card-body">
             <div class="row">
-                <div class="col-4 text-center "><img src="new1.jpg" class="rounded-circle" alt="Asish Rijal" width="90" height="90"><br><br>
-                <button type="button" class="btn btn-success">Get Help</button>
+                <div class="col-4 text-center "><img src="new1.jpg" class="rounded-circle" alt="{{res.profile.first_name}} {{res.profile.last_name}}" width="90" height="90"><br><br>
+                <button type="button" onclick="window.location.href='#'" class="btn btn-success">Chat</button>
                 </div>
                 <div class="col-8">
                         <h5 class="card-title">{{res.profile.username}}</h5>
                         <h6>Freelance Python developer in Chitwan,Nepal </h6>
                         <button type="button" class="btn btn-secondary btn-sm">Python</button>
                         <button type="button" class="btn btn-secondary btn-sm">Django</button>
-                        <button type="button" class="btn btn-secondary btn-sm">Anoconda</button><br><br>
+                        <button type="button" onclick="window.location.href=''" class="btn btn-secondary btn-sm">Anoconda</button><br><br>
                         <blockquote class="blockquote">
                                 <p><small>"I fell in love with Python the day I first used it to create small animations for a website in an era where everyone used flash to achieve the same result."</small></p>        
                         </blockquote>
+
+
                 </div>
             </div>
             </div>

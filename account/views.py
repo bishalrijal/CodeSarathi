@@ -25,6 +25,7 @@ def firstpage(request):
 
 
 def Dashboard(request):
+    techskill=TechSkill.objects.all()
     logged_in_user = request.user
     posts = BlogPost.objects.filter(author=logged_in_user)
     if request.method == 'POST':
@@ -38,7 +39,7 @@ def Dashboard(request):
             return HttpResponseRedirect(reverse('account:dashboard'))
     else:
         Post_form=PostForm()
-    return render(request,'account/dashboard.html',{'posts':posts,'post_form':Post_form,'media_url':settings.MEDIA_URL})
+    return render(request,'account/dashboard.html',{'posts':posts,'skill':techskill,'post_form':Post_form,'media_url':settings.MEDIA_URL})
     
 def Register(request):
     if request.method == 'POST':
@@ -48,7 +49,6 @@ def Register(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-
             new_user.groups.add(group)
             new_user.save()
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
