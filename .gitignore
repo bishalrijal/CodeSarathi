@@ -9,8 +9,10 @@ account/migrations
 account/migrations/__pycache__
 media
 .idea
- Mentor/migrations
- QA/migrations
+Mentor/migrations
+QA/migrations
+Mentor/__pycache__
+
 
 .py[cod]g
 .idea
