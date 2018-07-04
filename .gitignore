@@ -15,11 +15,11 @@ CodeSarathi/__pycache__
 .py[cod]
 .idea/workspace.xml
 .idea/tasks.xml
- Mentor/__pycache__
- Mentor/migrations/__pycache__
- chat/migrations/__pycache__
- QA/__pycache__
- chat/__pycache__
+Mentor/__pycache__
+Mentor/migrations/__pycache__
+chat/migrations/__pycache__
+QA/__pycache__
+chat/__pycache__
 Mentor/migrations
 QA/migrations
 QA/migrations/__pycache__
