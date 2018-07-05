@@ -5,6 +5,9 @@ account/__pycache__
 account/migrations/*.*
 account/migrations/__pycache__/*.*
 media
+Mentor/__pycache__
+QA/__pycache__
 codesarathi/settings/local.py
 CodeSarathi/settings/__pycache__/local.cpython-36.pyc
 .py[cod]
+

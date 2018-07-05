@@ -40,6 +40,14 @@ class Answer(models.Model):
     def __str__(self):
         return self.answertext
 
+# class notification(models.Model):
+#     """models  for notification to the mentor if they 
+#     ve a related question"""
+#     message=models.CharField(max_length=200,)
+#     user=models.ManyToManyField(settings.AUTH_USER_MODEL)
+#     time=models.DateTimeField(auto_now=True)
+    
+
 
 
 

@@ -8,7 +8,8 @@ from .models import *
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
 
-#group=Group.objects.get(name='mentee')
+techskill=TechSkill.objects.all()
+group=Group.objects.get(name='mentee')
 def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
@@ -24,6 +25,7 @@ def firstpage(request):
 
 
 def Dashboard(request):
+    techskill=TechSkill.objects.all()
     logged_in_user = request.user
     pic=Profile.objects.get(user=logged_in_user)
     picture=pic.photos
@@ -39,7 +41,11 @@ def Dashboard(request):
             return HttpResponseRedirect(reverse('account:dashboard'))
     else:
         Post_form=PostForm()
-    return render(request,'account/dashboard.html',{'posts':posts,'post_form':Post_form,'media_url':settings.MEDIA_URL})
+    return render(request,'account/dashboard.html',
+                                    {'posts':posts,
+                                    'post_form':Post_form,
+                                    'media_url':settings.MEDIA_URL,
+                                    'skill':techskill})
     
 def Register(request):
     if request.method == 'POST':
@@ -99,7 +105,12 @@ def post_detail(request,year,month,day,slug):
             new_comment.save()
     else:
         comment_form=CommentForm()
-    return render(request,'account/index.html',{'post':post,'comments':comments,'comment_form':comment_form,'slug':slug})
+    return render(request,'account/index.html',
+                                {'post':post,
+                                'comments':comments,
+                                'comment_form':comment_form,
+                                'slug':slug,
+                                'skill':techskill})
 
 @login_required
 def edit_profile(request):

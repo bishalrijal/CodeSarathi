@@ -6,13 +6,19 @@ from django.urls import reverse
 from .models import Question,Answer
 from account.models import Languages
 from django.contrib.auth.decorators import login_required
+from account.models import TechSkill
 
+techskill=TechSkill.objects.all()
 
 def home(request):
     question=Question.objects.all()
     question_form=QuestionForm()
     language=Languages.objects.all()
-    return render(request,'QA/home.html',{'Questions':question,'form':question_form,'languages':language})
+    return render(request,'QA/home.html',
+                            {'Questions':question,
+                            'form':question_form,
+                            'languages':language,
+                            'skill':techskill})
 
 
 def CreateQuestion(request):
@@ -40,7 +46,7 @@ def filter(request,slug):
     lang=slug
     if lang:
         result=Question.objects.filter(related__name=lang)
-        return render(request,'QA/filter.html',{'Questions':result})
+        return render(request,'QA/filter.html',{'Questions':result,'skill':techskill,})
     else:
         return HttpResponse('this is not valid Querry')
 
@@ -48,7 +54,7 @@ def filter(request,slug):
 def myquestion(request):
     if request.user.is_authenticated:
         result=Question.objects.filter(user=request.user)
-        return render(request,'QA/myquestion.html',{'Questions':result})
+        return render(request,'QA/myquestion.html',{'Questions':result,'skill':techskill})
     else:
         return HttpResponse('this is not valid Querry')
 
@@ -65,7 +71,7 @@ def editquestion(request,id,slug):
     else:
         editform=QuestionForm(instance=question)
 
-    return render(request,'QA/edit.html',{'form':editform,'Question':question})
+    return render(request,'QA/edit.html',{'form':editform,'Question':question,'skill':techskill})
 
 from .form import AnswerForm
 def detail(request,slug,id):
@@ -81,7 +87,11 @@ def detail(request,slug,id):
             return HttpResponseRedirect(reverse('QA:detail',kwargs={'slug':question.slug,'id':question.id}))
     else:
         answerform=AnswerForm()
-        return render(request,'QA/answer.html',{'question':question,'Answers':Answers,'answerform':answerform})
+        return render(request,'QA/answer.html',
+                            {'question':question,
+                            'Answers':Answers,
+                            'answerform':answerform,
+                            'skill':techskill,})
     
 def Distinct(answer):
     li=[]
@@ -96,7 +106,10 @@ def myanswer(request):
         ansid=Distinct(ans)
         question=Question.objects.filter(id__in=ansid)
         answer=Answer.objects.filter(question__in=question,user=request.user)
-        return render(request,'QA/myanswer.html',{'questions':question,'Answers':answer})
+        return render(request,'QA/myanswer.html',
+                                {'questions':question,
+                                'Answers':answer,
+                                'skill':techskill})
 
 
 
