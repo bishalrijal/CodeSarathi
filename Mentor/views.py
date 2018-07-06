@@ -14,6 +14,8 @@ from .models import Mentor
 from django.urls import reverse
 from django.contrib.auth.models import Group
 group=Group.objects.get(name='mentor')
+from account.models import Languages
+languages=Languages.objects.all()
 @login_required
 def Home(request):
     return render(request, 'mentor/home.html')
@@ -52,4 +54,4 @@ def Step2(request):
             return HttpResponse("invalied data")
     else:
         user_form=InfoForm(instance=request.user)
-    return render(request,'step2.html',{'form':user_form})
+    return render(request,'step2.html',{'form':user_form,'languages':languages})

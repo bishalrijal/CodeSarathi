@@ -40,7 +40,7 @@
               {% else %}
               {% endif %}</a>
               {% if Question.user == request.user %}
-            <a  data-toggle="modal" data-target="#logoutModal" href="#">
+              <a data-toggle="modal" data-target="#logoutModal" href="#">
                 delete 
                 <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog1 modal-lg">
@@ -77,6 +77,7 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="container">
+                <h2 class="text-center">Ask a Question</h2>
               <form action="{% url 'QA:create' %}" method="post">
               {% csrf_token %}
               <div class="form-group">

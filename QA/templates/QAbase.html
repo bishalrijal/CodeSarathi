@@ -26,15 +26,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           {% load staticfiles %}
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'QA:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Profile</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account:dashboard'}">Become a mentor</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

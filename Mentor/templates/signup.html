@@ -1,9 +1,43 @@
+
 {% extends "mentor_base.html" %}
      {% block content %}  
-        <h2>Sign up</h2>
+     <div class="container1">
+     <h2 class="text-center">Become a mentor now</h2>
+     <h5 class="text-center">Join Developer Community</h5>
         <form action="{% url 'Mentor:signup' %}" method="post">
+            <div class="card" style="width: 28rem;">
+              <div class="card-body">
+          <form class="px-4 py-3"> 
             {% csrf_token %}
-              {% for field in form %}
+            <div class="form-group">
+                <label for="username">username</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                    {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="email">email</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="RepeatPassword">RepeatPassword</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn btn-success">Sign up</button>
+          </form>
+          {% endblock content %}
+
+              <!-- {% for field in form %}
               <p>
                 {{ field.label_tag }}<br>
                 {{ field }}
@@ -14,7 +48,31 @@
                   <p style="color: red">{{ error }}</p>
                 {% endfor %}
               </p>
-              {% endfor %}
-            <button type="submit">Sign up</button>
-          </form>
-    {% endblock content %} 
+              {% endfor %} -->
+           
+
+
+
+         
+       
+<!--    
+<div class="form-group">
+<input type="text" name="fullname" id="fullname" class="form-control" placeholder="fullname">
+</div>
+<div class="form-group">
+<input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Email Address">
+</div>
+<div class="form-group">
+<input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+</div>
+<div class="form-group">
+<input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Repeat Password">
+</div>
+<br>
+<a href="mentor2.html" class="btn btn-success btn-block">Submit</a>
+</form>
+
+</div>
+</div>
+</div>
+      -->
