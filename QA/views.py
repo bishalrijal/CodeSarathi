@@ -25,7 +25,7 @@ def CreateQuestion(request):
     if request.method=='POST':
         question_form=QuestionForm(request.POST)
         if question_form.is_valid:
-            newquestion=question_form.save()
+            newquestion=question_form.save(commit=False)
             newquestion.user=request.user
             newquestion.save()
             messages.success(request,'question create succesfully!!')

@@ -1,21 +1,25 @@
 {% extends "QAbase.html" %}
 {% block content %}
-<div class="container">
-    <div class="row">
-      <div class="col-md-8"><br>
-      <div class="col-md-8">
+<div class="row">
+    <div class="col-md-2">
+    <div class="test" >
+      <div class="card" style="height: 30rem;">
+        <div class="card-body .bg-light">
+            <div class="sidenav">
+        <ul>
+          <li  data-toggle="modal" data-target="#myModal1"><a href="#">  Askquestion </a></li>
+          <li><a href="{% url 'QA:myquestion' %}">  Myquestion </a></li>
+          <li><a href="{% url 'QA:myanswer' %}">  Myanswer </a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+        <div class="col-md-8">
         <br>
         {% if request.user.is_authenticated %}
-        <div class="card mb-4">
-          <div class="card-body">
-            <form action="{% url 'QA:create' %}" method="post">
-              {{form.as_p}}
-              {%csrf_token %}
-              <p><input type="submit" value="Post hear"></p>
-          </form>
-          </div>
-        </div>
-        
         {% else %}
         <p>please log in to create a question </p>
         {% endif %}
@@ -24,21 +28,36 @@
           {% for Question in Questions %}
           <div class="card mb-4">
           <div class="card-body">
-
-            <h2 class="card-title"><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
+            <h2 class="card-title" ><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
             <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
             
           </div>
           <div class="card-footer text-muted">
              {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
-             {% if Question.user == request.user %}
-             <a href="{% url 'QA:edit' id=Question.id slug=Question.slug %}">
+             {% if Question.user == request.user %} 
+             <a href="{% url 'QA:edit' id=Question.id slug=Question.slug%}">
               edit
               {% else %}
               {% endif %}</a>
               {% if Question.user == request.user %}
-              <a href="{% url 'QA:delete' id=Question.id slug=Question.slug  %}">
+            <a  data-toggle="modal" data-target="#logoutModal" href="#">
                 delete 
+                <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog1 modal-lg">
+                      <div class="modal-content">
+                      <div class="modal-body ">
+                        <p><i class="fa fa-question-circle"></i> Are you sure you want to Delete?<br /></p>
+                        <div class="actionsBtns">
+                            <form action="google.com" method="post">
+                                <a class="btn btn-large btn-danger" href="{% url 'QA:delete'  id=Question.id slug=Question.slug  %}">Delete</a>
+                                <button onclick="" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 {% else %}
                 {% endif %}</a>
           </div>
@@ -50,7 +69,37 @@
 
         {% include "account/pagination.html" with page=posts %}
 
-      </div>
+  </div>
+  
 
+
+      <div id="myModal1" class="modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="container">
+              <form action="{% url 'QA:create' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                  <label for="username">Title:</label>
+                  {{ form.title }}
+              </div>
+  
+              <div class="form-group">
+                <label for="Deccription">Description:</label>
+                {{form.description}}
+              </div>
+              <label for="Deccription">Language:</label>
+                {{form.related}}
+              
+              <button type="submit" class="btn btn-block btn-success text-center" class="mb-4">Add Post</button>
+              </form>
+              <br>
+              </div>
+              </div>
+              </div>
+              </div>
+              
+  
+  
 
 {% endblock content %}

@@ -1,8 +1,26 @@
 {% extends "QAbase.html" %}
 {% block content %}
-<form action="{% url 'QA:edit' id=Question.id slug=Question.slug%}" method="post">
-    {{form.as_p}}
-    {%csrf_token %}
-    <p><input type="submit" value="Post hear"></p>
+<div class="card">
+    <div class="col">
+    <form action="{% url 'QA:edit' id=Question.id slug=Question.slug%}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+                <label for="Deccription">Description:</label>
+                {{form.description}}
+        </div>
+
+        <!-- <div class="form-group"> -->
+                <label for="Deccription">Language:</label>
+                {{form.related}}
+        <!-- </div> -->
+    <p><input type="submit" value="Update"></p>
+
 </form>
-{% endblock content %}
+</div>
+
+{% endblock %}
+

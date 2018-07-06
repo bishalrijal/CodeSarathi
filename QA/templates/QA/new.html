@@ -1,0 +1,100 @@
+{% extends "QAbase.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-8"><br>
+      <div class="col-md-8">
+        <br>
+        {% if request.user.is_authenticated %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 data-toggle="modal" data-target="#myModal1" class="card-subtitle mb-2 text-muted ">Write a Question</h4>
+          </div>
+        </div>
+        
+        {% else %}
+        <p>please log in to create a question </p>
+        {% endif %}
+        
+          {% if Questions %}
+          {% for Question in Questions %}
+          <div class="card mb-4">
+          <div class="card-body">
+
+            <h2 class="card-title"><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
+            <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
+            
+          </div>
+          <div class="card-footer text-muted">
+             {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
+             {% if Question.user == request.user %}
+             <a href="{% url 'QA:edit' id=Question.id slug=Question.slug %}">
+              edit
+              {% else %}
+              {% endif %}</a>
+              {% if Question.user == request.user %}
+              <a href="{% url 'QA:delete' id=Question.id slug=Question.slug  %}">
+                delete 
+                {% else %}
+                {% endif %}</a>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>there is no post </p>
+        {% endif %}
+
+        {% include "account/pagination.html" with page=posts %}
+
+      </div>
+
+      <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+    <div class="container">
+          <form>
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <!-- <input type="text" class="form-control"> </input> -->
+              {{form.title}}
+            </div>
+
+
+            <div class="form-group">
+              <label for="Deccription">Description:</label>
+              <!-- <textarea class="form-control" rows="5" id="Description"></textarea> -->
+              {{form.description}}
+
+            </div>
+
+
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Related</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {% if languages %}
+                    {% for lang in languages  %}
+                    <a class="dropdown-item" href="#">{{lang.name}}</a>
+                    {% endfor %}
+                  
+                  {% else %}
+                  {% endif %}
+                  
+                  
+                </div>
+              </div>
+            </div>
+
+
+            
+                  <button type="submit" class="btn btn-block btn-success text-center" class="mb-4">Add Post</button>
+            </form>
+            <br>
+              
+                  </div>
+            </div>
+
+
+
+{% endblock content %}
