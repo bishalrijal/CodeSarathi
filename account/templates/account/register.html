@@ -10,7 +10,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/singupcss.css' %}" />
 </head>
 <body>
+    <div class="container">
     <form action="{% url 'account:register' %}" method="post" class="main-form needs-validation" novalidate >
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+        <form class="px-4 py-3"> 
         {% csrf_token %}
         <h3><p class="text-center">Join With Amazing Community</p></h3><br>
             <div class="row">
@@ -43,8 +47,14 @@
                 <label for="password2">Repeat Password</label>
                 {{user_form.password2}}
             </div>
-            </div><br>
+            <br>
             <button type="submit" class="btn btn-success btn-block">Register</button>
+            </div>
+            
+        </div>
+    </div>
+
         </form>
+        </div>
 </body>
 </html>
