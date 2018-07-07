@@ -1,13 +1,15 @@
 manage.*
-CodeSarathi/settings.*
+CodeSarathi/settings/local.py
 CodeSarathi/__pycache__
+CodeSarathi/settings/__pycache__
 account/__pycache__
-account/migrations/*.*
-account/migrations/__pycache__/*.*
-media
+account/migrations
+account/migrations/__pycache__
 Mentor/__pycache__
+Mentor/migrations
+media
 QA/__pycache__
-codesarathi/settings/local.py
-CodeSarathi/settings/__pycache__/local.cpython-36.pyc
+QA/migrations
+
 .py[cod]
 

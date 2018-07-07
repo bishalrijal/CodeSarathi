@@ -24,7 +24,7 @@ def Home(request):
 def SignUp(request):
     if request.method == 'POST':
         user_form=SignupForm(request.POST)
-        if user_form.is_valid:
+        if user_form.is_valid():
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password1'])
             new_user.save()
@@ -41,8 +41,8 @@ def SignUp(request):
 def Step2(request):
     mentor=Mentor.objects.get(profile=request.user)
     if request.method =='POST':
-        user_form=InfoForm(instance=request.user,data=request.POST)
-        if user_form.is_valid:
+        user_form=InfoForm(data=request.POST)
+        if user_form.is_valid():
             user_info = user_form.save(commit=False)
             cleaned_data=user_form.clean()
             mentor.bio=cleaned_data['bio']
@@ -50,8 +50,6 @@ def Step2(request):
             mentor.github=cleaned_data['github']
             mentor.save()
             return HttpResponseRedirect(reverse('Mentor:home'))
-        else:
-            return HttpResponse("invalied data")
     else:
         user_form=InfoForm(instance=request.user)
     return render(request,'step2.html',{'form':user_form,'languages':languages})
