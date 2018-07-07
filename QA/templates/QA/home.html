@@ -23,7 +23,7 @@
         {% else %}
         <p>please log in to create a question </p>
         {% endif %}
-        
+          <h2 class="text-center mb-4" data-toggle="modal" data-target="#myModal1" ><a href="#">Ask a Question!</a></h2>
           {% if Questions %}
           {% for Question in Questions %}
           <div class="card mb-4">
@@ -40,9 +40,9 @@
               {% else %}
               {% endif %}</a>
               {% if Question.user == request.user %}
-              <a data-toggle="modal" data-target="#logoutModal" href="#">
+              <a data-toggle="modal" data-target="#deleteModal" href="#">
                 delete 
-                <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog1 modal-lg">
                       <div class="modal-content">
                       <div class="modal-body ">

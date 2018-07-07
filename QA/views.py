@@ -52,6 +52,7 @@ def filter(request,slug):
 
 @login_required
 def myquestion(request):
+    
     if request.user.is_authenticated:
         result=Question.objects.filter(user=request.user)
         return render(request,'QA/myquestion.html',{'Questions':result,'skill':techskill})
