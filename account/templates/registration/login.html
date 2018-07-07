@@ -14,7 +14,10 @@
   <!-- <div class="card" style="width: 28rem;"> -->
     <div class="container">
   <form class="px-4 py-3" action ="{% url 'account:login' %}" method="post">
-      {% csrf_token %}
+      <div class="card" style="width: 28rem;">
+      <div class="card-body">
+      <form class="px-4 py-3"> 
+    {% csrf_token %}
     <div class="form-group">
     <p><h1 class="text-center">Sign In</h1></p>
       <label for="usernamme">Username</label>
@@ -34,6 +37,8 @@
       <a class="text-dark" href="{% url 'account:register' %}">New User! Sign up</a><br>
       <a class="text-dark" data-toggle="modal" data-target="#myModal" href="#">Forgot password?</a>
   </form>
+  </div>
+  </div>
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
