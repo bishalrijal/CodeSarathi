@@ -7,6 +7,7 @@ from .models import Question,Answer
 from account.models import Languages
 from django.contrib.auth.decorators import login_required
 from account.models import TechSkill
+from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 
 techskill=TechSkill.objects.all()
 
@@ -110,6 +111,58 @@ def myanswer(request):
                                 {'questions':question,
                                 'Answers':answer,
                                 'skill':techskill})
+from .models import BlogPost,Comment
+def post_list(request):
+    skill= TechSkill.objects.all()
+    # posts=Post.published.all()
+    object_list = BlogPost.published.all()
+    paginator = Paginator(object_list, 2)  # 3 posts in each page
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
 
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request,'account/blog.html',{'posts':posts,'page':page,'skill':skill})
+    #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
+
+
+def post_detail(request,year,month,day,slug):
+    post=get_object_or_404(BlogPost,
+                           status='published',
+                           publish__year=year,
+                           publish__month=month,
+                           publish__day=day,
+                           slug=slug)
+    comments=post.comments.filter(active=True)
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post=post
+            new_comment.save()
+    else:
+        comment_form=CommentForm()
+    return render(request,'account/index.html',
+                                {'post':post,
+                                'comments':comments,
+                                'comment_form':comment_form,
+                                'slug':slug,
+                                'skill':techskill})
+
+from Mentor.models import Mentor
+@login_required
+def Qusforme(request):
+    if request.user.groups.get().name=='mentor':
+        user=Mentor.objects.get(profile=request.user)
+        related=user.languages.all()
+        myquestion=Question.objects.filter(related__in=related)
+        return render(request,'QA/myquestion.html',{'Questions':myquestion,'skill':techskill})
+    else:
+        
+        return HttpResponse("You don't ve a permission ")
+        
 
 

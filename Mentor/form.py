@@ -29,3 +29,4 @@ class InfoForm(forms.ModelForm):
         
     bio=forms.CharField(widget=forms.Textarea(attrs={'rows':4,'cols':40, 'class':'form-control','placeholer':'bio',}))
     github=forms.URLField(initial='https://github.com/')
+

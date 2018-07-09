@@ -1,11 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,reverse
 from django.http import HttpResponse,HttpResponseRedirect 
 from django.contrib.auth import authenticate, login
-from .form import LoginForm ,UserRegistrationForm,PostForm,CommentForm
+from .form import LoginForm ,UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
-from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import Group
 
 techskill=TechSkill.objects.all()
@@ -14,9 +13,9 @@ def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
         if logged_in_user.groups.get().name=='mentor':
-            return HttpResponseRedirect(reverse('Mentor:home'))
+            return HttpResponseRedirect(reverse('QA:post'))
         elif logged_in_user.groups.get().name=='mentee':
-            return HttpResponseRedirect(reverse('account:dashboard'))
+            return HttpResponseRedirect(reverse('QA:home'))
         else:
             return HttpResponse("user is not valied !!")
 
@@ -55,7 +54,7 @@ def Register(request):
             new_user=user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            #new_user.groups.add(group)
+            new_user.groups.add(group)
             new_user.save()
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
             new_profile=Profile(user=new_user)
@@ -70,47 +69,6 @@ def Register(request):
     return render(request,
                         'account/register.html',
                         {'user_form':user_form})
-
-@login_required
-def post_list(request):
-    skill= TechSkill.objects.all()
-    # posts=Post.published.all()
-    object_list = BlogPost.published.all()
-    paginator = Paginator(object_list, 2)  # 3 posts in each page
-    page = request.GET.get('page')
-    try:
-        posts = paginator.page(page)
-    except PageNotAnInteger:
-
-        posts = paginator.page(1)
-    except EmptyPage:
-        posts = paginator.page(paginator.num_pages)
-    return render(request,'account/blog.html',{'posts':posts,'page':page,'skill':skill})
-    #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
-
-
-def post_detail(request,year,month,day,slug):
-    post=get_object_or_404(BlogPost,
-                           status='published',
-                           publish__year=year,
-                           publish__month=month,
-                           publish__day=day,
-                           slug=slug)
-    comments=post.comments.filter(active=True)
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.post=post
-            new_comment.save()
-    else:
-        comment_form=CommentForm()
-    return render(request,'account/index.html',
-                                {'post':post,
-                                'comments':comments,
-                                'comment_form':comment_form,
-                                'slug':slug,
-                                'skill':techskill})
 
 @login_required
 def edit_profile(request):
@@ -150,4 +108,4 @@ def MentorSearch(request,slug):
         return render(request,'search/index.html',{'message':msg })
 
 
-# Create your views here.
+

@@ -3,6 +3,7 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.conf import settings
 from account.models import Languages
 from django.template.defaultfilters import slugify
+from Mentor.models import Mentor
 @python_2_unicode_compatible
 class Question(models.Model):
     """ Models class for Question and their associate 
@@ -40,13 +41,59 @@ class Answer(models.Model):
     def __str__(self):
         return self.answertext
 
-# class notification(models.Model):
-#     """models  for notification to the mentor if they 
-#     ve a related question"""
-#     message=models.CharField(max_length=200,)
-#     user=models.ManyToManyField(settings.AUTH_USER_MODEL)
-#     time=models.DateTimeField(auto_now=True)
+from django.utils import timezone
+from django.urls import reverse
+#from taggit.managers import TaggableManager
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager,self).get_queryset().filter(status='published')
+
+class BlogPost(models.Model):
+    def get_absolute_url(self):
+        return reverse('account:post_detail',
+                       args=[self.publish.year,
+                             self.publish.strftime('%m'),
+                             self.publish.strftime('%d'),
+                             self.slug])
+
+    # tags = TaggableManager()
+    objects = models.Manager()  # The default manager.
+    published = PublishedManager()  # Our custom manager.
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
+    title = models.CharField(max_length=250,null=True)
+    slug = models.SlugField(max_length=250,
+                            unique_for_date='publish',null=True)
+    author = models.ForeignKey(Mentor,
+                               related_name='blog_posts',
+                               null=True,on_delete=True)
+    body = models.TextField(blank=True)
+    publish = models.DateTimeField(default=timezone.now,null=True)
+    created = models.DateTimeField(auto_now_add=True,null=True)
+    updated = models.DateTimeField(auto_now=True,null=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+
+    class Meta:
+        ordering = ('-publish',)
+
+    def __str__(self):
+        return self.title
+
     
+
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost, related_name='comments',on_delete=False)
+    user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL,null=True)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+    class Meta:
+        ordering = ('created',)
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
 
 
 

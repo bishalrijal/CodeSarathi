@@ -61,16 +61,17 @@
   </nav>
 
   <!-- body -->
+  <a href="{% url 'QA:qus4me' %}">Question for me !!</a>
           <div class="container">
             <div class="row">
               <div class="col-md-8"><br>
-                {% if posts %}
                 <div class="card mb-4">
                     <div class="card-body">
                       <h6 data-toggle="modal" data-target="#myModal" class="card-subtitle mb-2 text-muted lead "><small>Dilip Gautam</small></h6>
                       <h4 data-toggle="modal" data-target="#myModal" class="card-subtitle mb-2 text-muted ">Write a Post...</h4>
                     </div>
                   </div>
+                  {% if posts %}
                   {% for post in posts %}
                   <div class="card mb-4">
                   <div class="card-body">
