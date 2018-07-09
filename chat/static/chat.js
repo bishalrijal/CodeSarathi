@@ -1,8 +1,12 @@
 $('#chat-form').on('submit', function(event){
     event.preventDefault();
 
+
     $.ajax({
-        url : '/post/',
+
+
+
+       url : '"/chat/"+name+/post',
         type : 'POST',
         data : { msgbox : $('#chat-msg').val() },
 
@@ -18,9 +22,11 @@ $('#chat-form').on('submit', function(event){
 
 
 
+
+
 function getMessages(){
     if (!scrolling) {
-        $.get('/messages/', function(messages){
+        $.get('/chat/nirajan/messages/', function(messages){
             console.log(messages);
             $('#msg-list').html(messages);
             var chatlist = document.getElementById('msg-list-div');

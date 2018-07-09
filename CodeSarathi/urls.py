@@ -31,7 +31,9 @@ urlpatterns = [
 
     # path('account',RedirectView.as_view(url='/account/login/')),
     path('mentor/',include('Mentor.urls',namespace='Mentor')),
-    path('questions/',include('QA.urls',namespace='QA'))
+    path('questions/',include('QA.urls',namespace='QA')),
+    path('chat/',include('chat.urls',namespace='chat')),
+
 ]
 from django.conf import settings 
 from django.conf.urls.static import static

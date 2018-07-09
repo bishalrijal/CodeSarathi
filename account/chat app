@@ -1,4 +1,4 @@
-% for obj in chat %}
+{% for obj in chat %}
     {% if obj.sender == s1 and obj.receiver == r1 %}
         {% if obj.sender == s1 %}
             <li class="text-right list-group-item">{{ obj.message }}</li>

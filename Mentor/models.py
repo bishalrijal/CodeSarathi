@@ -14,7 +14,7 @@ class Mentor(models.Model):
         ('available','Available'),
         ('unavailable','Unavailable')
     )
-    profile=models.OneToOneField(User,on_delete=models.CASCADE, null=True)
+    profile=models.OneToOneField(User,on_delete=models.CASCADE , null=True)
     photos=models.ImageField(upload_to='mentor/%Y/%m/%d',blank=True,)
     bio = models.CharField(max_length=200,blank=True, null=True)
     skill = models.ManyToManyField(TechSkill,related_name='mentor_skill')

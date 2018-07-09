@@ -14,36 +14,37 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+
 </head>
 
 <body>
     <div id="chat-body" class="panel panel-default">
-        <div class="panel-heading">codesarathi chat app</div>
+        <div class="panel-heading">Monkey Bomb Chat Box</div>
         <div id="msg-list-div" class="panel-body">
             <ul id="msg-list" class="list-group">
                 {% for obj in chat %}
-                    {% if obj.sender == s1 and obj.receiver == r1 %}
+			        {% if obj.sender == s1 and obj.receiver == r1 %}
                         <li class="text-right list-group-item">{{ obj.message }}</li>
-                    {% else %}
-                        <li class="text-left list-group-item">{{ obj.message }}</li>
-                    {% endif %}
-                    {% empty %}
-                    <li class="text-right list-group-item">No messages yet!</li>
-                {% endfor %}
 
 
-                <script>
+			        {% else %}
+			            <li class="text-left list-group-item">{{ obj.message }}</li>
+			        {% endif %}
+			        {% empty %}
+			            <li class="text-right list-group-item">No messages yet!</li>
+			    {% endfor %}
+
+
+            </ul>
+        </div>
+        <script>
                     var chatlist = document.getElementById('msg-list-div');
                     chatlist.scrollTop = chatlist.scrollHeight;
                 </script>
-            </ul>
 
-
-
-        </div>
     </div>
 
-    <form id="chat-form" method="post" action="/post/">
+    <form id="chat-form" method="post">
         <div id="chat-bottom" class="input-group">
             <input type="text" id="chat-msg" name="chat-msg" class="form-control"/>
             <span class="input-group-btn">
@@ -54,6 +55,10 @@
             </span>
         </div>
     </form>
+<div><a class="btn btn-warning" id="clearall" type="Logout" value="Logout" href="#">Logout</a></div>
 </body>
+<script>
+    var name={{% sender %}}
+</script>
 <script src="{% static 'chat.js' %}"></script>
 </html>

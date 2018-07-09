@@ -37,13 +37,12 @@ def SignUp(request):
         user_form=SignupForm()
     return render(request,'signup.html',{'form':user_form},)
 
-def Step2(request):
+def Step2(request,):
     if request.method =='POST':
         user_form=InfoForm(request.POST)
         if user_form.is_valid:
-            user_info = user_form.save(commit=False)
+            user_info = user_form.save()
             user_info.save()
-
             return HttpResponseRedirect(reverse('Mentor:home'))
         else:
             return HttpResponse("invalied data")

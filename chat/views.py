@@ -13,26 +13,26 @@ def index(request):
     return render(request, 'alpha/login.html', {'next': next})
 
 
-def Login(request):
-    next = request.GET.get('next', '/home/')
-    if request.method == "POST":
-
-        username = request.POST['username']
-        password = request.POST['password']
-        request.session['receiver'] = request.POST['username2']
-        print(request.session['receiver'])
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                #WelcomeUser(user)
-                return HttpResponseRedirect(next)
-            else:
-                return HttpResponse("Account is not active at the moment.")
-        else:
-            return HttpResponseRedirect(settings.LOGIN_URL)
-    return render(request, "alpha/login.html", {'next': next})
+# def Login(request):
+#     next = request.GET.get('next', '/home/')
+#     if request.method == "POST":
+#
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         request.session['receiver'] = request.POST['username2']
+#         print(request.session['receiver'])
+#         user = authenticate(username=username, password=password)
+#
+#         if user is not None:
+#             if user.is_active:
+#                 login(request, user)
+#                 #WelcomeUser(user)
+#                 return HttpResponseRedirect(next)
+#             else:
+#                 return HttpResponse("Account is not active at the moment.")
+#         else:
+#             return HttpResponseRedirect(settings.LOGIN_URL)
+#     return render(request, "alpha/login.html", {'next': next})
 
 def Logout(request):
     # logout(request)
@@ -40,7 +40,9 @@ def Logout(request):
     return HttpResponseRedirect('/login/')
 
 
-def Home(request):
+def Home(request,username):
+    request.session['receiver'] = "nirajan"
+    #sender=username
     def AND(a, b):
         return (a and b)
     def equal(a,b):
@@ -51,7 +53,6 @@ def Home(request):
     sender = request.user
     c = Chat.objects.all()
     receiver = request.session['receiver']
-    print(receiver)
     s1 = User.objects.get(username=sender)
     r1 = User.objects.get(username=receiver)
     a=list()
@@ -61,13 +62,15 @@ def Home(request):
     return render(request, "alpha/home.html", {'home': 'active', 'chat': a,'r1':r1,'s1':s1})
 
 
-def Post(request):
+def Post(request,username):
 
     if request.method == "POST":
         sender = request.user
         msg = request.POST.get('msgbox', None)
+        print(msg)
+        print()
         receiver = request.session['receiver']
-        print(receiver)
+
 
         if msg != '':
             s1 = User.objects.get(username=sender)
