@@ -1,4 +1,10 @@
+function getUserName(){
+    return window.location.pathname.split('/')[2];
+}
+
+
 $('#chat-form').on('submit', function(event){
+
     event.preventDefault();
 
 
@@ -25,8 +31,10 @@ $('#chat-form').on('submit', function(event){
 
 
 function getMessages(){
+
+
     if (!scrolling) {
-        $.get('/chat/nirajan/messages/', function(messages){
+        $.get(`/chat/${getUserName()}/messages/`, function(messages){
             console.log(messages);
             $('#msg-list').html(messages);
             var chatlist = document.getElementById('msg-list-div');

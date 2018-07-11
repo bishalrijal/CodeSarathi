@@ -36,6 +36,7 @@
 
 
             </ul>
+            <p>{{rl.username}}</p>
         </div>
         <script>
                     var chatlist = document.getElementById('msg-list-div');
@@ -57,8 +58,10 @@
     </form>
 <div><a class="btn btn-warning" id="clearall" type="Logout" value="Logout" href="#">Logout</a></div>
 </body>
-<script>
-    var name={{% sender %}}
-</script>
+
 <script src="{% static 'chat.js' %}"></script>
+<script>
+    console.log({{username}});
+    console.log('hello');
+</script>
 </html>

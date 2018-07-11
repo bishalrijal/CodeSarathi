@@ -41,8 +41,8 @@ def Logout(request):
 
 
 def Home(request,username):
-    request.session['receiver'] = "nirajan"
-    #sender=username
+    # request.session['receiver'] = username
+
     def AND(a, b):
         return (a and b)
     def equal(a,b):
@@ -50,9 +50,11 @@ def Home(request,username):
             return True
         else:
             return False
+    print(username)
     sender = request.user
     c = Chat.objects.all()
-    receiver = request.session['receiver']
+    # receiver = request.session['receiver']
+    receiver = username
     s1 = User.objects.get(username=sender)
     r1 = User.objects.get(username=receiver)
     a=list()
