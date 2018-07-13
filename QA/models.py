@@ -5,6 +5,7 @@ from account.models import Languages
 from django.template.defaultfilters import slugify
 from Mentor.models import Mentor
 @python_2_unicode_compatible
+
 class Question(models.Model):
     """ Models class for Question and their associate 
     fields """
@@ -26,6 +27,7 @@ class Question(models.Model):
         return self.title
 
 @python_2_unicode_compatible
+
 class Answer(models.Model):
     """ Models class for Question and their associate 
     fields """

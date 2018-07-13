@@ -16,6 +16,8 @@ urlpatterns=[
     path('edit',views.edit_profile,name='edit'),
     path('become_a_mentor',authView.LoginView.as_view(template_name='mentor/login.html'),name='mentor_registration'),
     path('<slug:slug>-mentor',views.MentorSearch,name='searchmentor'),
+
+    path('videocall',views.videocall,name='videocall')
     
 
 ]

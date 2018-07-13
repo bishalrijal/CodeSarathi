@@ -19,6 +19,9 @@ def loginredirect(request):
         else:
             return HttpResponse("user is not valied !!")
 
+def videocall(request):
+    return render(request,'webrtc/index.html')
+
 def firstpage(request):
     return render(request,'01landingpage.html',{})
 
