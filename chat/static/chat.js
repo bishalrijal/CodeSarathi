@@ -12,7 +12,7 @@ $('#chat-form').on('submit', function(event){
 
 
 
-       url : '"/chat/"+name+/post',
+       url : '/chat/'${getUserName()}'/post',
         type : 'POST',
         data : { msgbox : $('#chat-msg').val() },
 

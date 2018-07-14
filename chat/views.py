@@ -1,12 +1,11 @@
-from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render ,reverse
-from django.contrib.auth import authenticate, logout, login
-from django.contrib.auth.models import User
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import Chat
-from CodeSarathi import settings
+# Create your views here.
+from django.shortcuts import render
+from.models import *
+from chat.models import Chat
+
+
 # Create your views here.
 def index(request):
 # return render_to_response('index.html')
@@ -38,6 +37,36 @@ def Logout(request):
     # logout(request)
     Chat.objects.all().delete()
     return HttpResponseRedirect('/login/')
+
+
+def getmessage(request):
+    chat_1=Chat.objects.all()
+    #print(chat_1)
+    ref=request.user
+    #print(ref)
+
+    a=[]
+    mychat=[]
+    #
+    for r in chat_1:
+        if r.sender.username == request.user.username or r.receiver.username == request.user.username:
+            mychat.append(r)
+    print(mychat)
+    for chat in mychat:
+        #print(chat.sender.username)
+        #print(chat.receiver.username)
+        if chat.sender.username != request.user.username:
+            if chat.sender.username not in a:
+                a.append(chat.sender.username)
+        if chat.receiver.username != request.user.username:
+            if chat.receiver.username not in a:
+                a.append(chat.receiver.username)
+    return render(request,'alpha/getmessage.html',{'result':a})
+
+
+
+
+
 
 
 def Home(request,username):

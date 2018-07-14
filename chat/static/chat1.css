@@ -1,0 +1,16 @@
+h2{
+    padding-top: 25px;
+}
+body{
+    background-color: aliceblue;
+}
+.container{
+    padding-top: 50px;
+
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
