@@ -11,7 +11,7 @@ from django.urls import reverse
 
 
 techskill=TechSkill.objects.all()
-group=Group.objects.get(name='mentee')
+#group=Group.objects.get(name='mentee')
 def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
