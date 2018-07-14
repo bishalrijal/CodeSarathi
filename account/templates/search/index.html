@@ -11,7 +11,8 @@
             <div class="card-body">
             <div class="row">
                 <div class="col-4 text-center "><img src="new1.jpg" class="rounded-circle" alt="Asish Rijal" width="90" height="90"><br><br>
-               <a href="videocall"><button type="button" class="btn btn-success">Get Help</button></a>
+               <a href="videocall"><button type="button" class="btn btn-success">Video Chat</button></a>
+               <a href="{% url 'chat:home' username=res.profile.username %}"><button type="button" class="btn btn-success">Text Chat</button></a>
                 </div>
                 <div class="col-8">
                         <h5 class="card-title">{{res.profile.username}}</h5>
@@ -22,7 +23,7 @@
                         {% endfor %}
                         
                         <blockquote class="blockquote">
-                                <p><small>"I fell in love with Python the day I first used it to create small animations for a website in an era where everyone used flash to achieve the same result."</small></p>        
+                                <p><small>{{res.bio}}</small></p>        
                         </blockquote>
                 </div>
             </div>

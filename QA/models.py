@@ -52,7 +52,7 @@ class PublishedManager(models.Manager):
 
 class BlogPost(models.Model):
     def get_absolute_url(self):
-        return reverse('account:post_detail',
+        return reverse('QA:post_detail',
                        args=[self.publish.year,
                              self.publish.strftime('%m'),
                              self.publish.strftime('%d'),

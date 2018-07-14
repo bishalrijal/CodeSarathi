@@ -15,7 +15,7 @@
     <div class="card" style="width: 28rem;">
         <div class="card-body">
         <form class="px-4 py-3"> 
-        {% csrf_token %}
+            {% csrf_token %}
         <h3><p class="text-center">Join With Amazing Community</p></h3><br>
             <div class="row">
                 <div class="col">
@@ -34,18 +34,22 @@
             <div class="form-group">
                 <label for="username">Username</label>
                 {{user_form.username}}
+                {{ user_form.username.errors }}
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 {{user_form.email}}
+                {{ user_form.email.errors }}
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 {{user_form.password}}
+                {{ user_form.password.errors }}
             </div>
             <div class="form-group">
                 <label for="password2">Repeat Password</label>
                 {{user_form.password2}}
+                {{ user_form.password2.errors }}
             </div>
             <br>
             <button type="submit" class="btn btn-success btn-block">Register</button>

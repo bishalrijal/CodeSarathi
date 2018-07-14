@@ -7,7 +7,6 @@
                 <div class="card" style="height: 30rem;">
                   <div class="card-body  .bg-light">
             <ul id="new">
-              <li  data-toggle="modal" data-target="#myModal1"><a href="#">  Askquestion </a></li>
               <li><a href="{% url 'QA:myquestion' %}">  Myquestion </a></li>
               <li><a href="{% url 'QA:myanswer' %}">  Myanswer </a></li>
             </ul>
@@ -22,14 +21,13 @@
           {% for Question in Questions %}
           <div class="card mb-4">
           <div class="card-body">
-
-            <h2 class="card-title" ><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
-            <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
-          </div>
-          <div class="card-footer text-muted">
-             {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
-             {% if Question.user == request.user %}
-             <a href="{% url 'QA:edit' id=Question.id slug=Question.slug %}">
+              <h2 class="card-title" ><a href="{% url 'QA:detail' id=Question.id slug=Question.slug %}">{{ Question.title }}</a></h2>
+              <p class="card-text">{{ Question.description|truncatewords:30|linebreaks }}
+            </div>
+            <div class="card-footer text-muted">
+              {{ Question.pub_date }} by <a href="#">{{ Question.user }} </a>
+              {% if Question.user == request.user %}
+              <a href="{% url 'QA:edit' id=Question.id slug=Question.slug %}">
               edit
               {% else %}
               {% endif %}</a>
@@ -91,6 +89,4 @@
               </div>
               </div>
               </div>
-
-
 {% endblock content %}

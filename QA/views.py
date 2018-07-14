@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
 from .form import QuestionForm
+from .form import *
 from django.contrib import messages
 from django.urls import reverse
 from .models import Question,Answer
@@ -21,6 +22,15 @@ def home(request):
                             'languages':language,
                             'skill':techskill})
 
+def home_mentor(request):
+    question=Question.objects.all()
+    question_form=QuestionForm()
+    language=Languages.objects.all()
+    return render(request,'QA/home_mentor.html',
+                            {'Questions':question,
+                            'form':question_form,
+                            'languages':language,
+                            'skill':techskill})
 
 def CreateQuestion(request):
     if request.method=='POST':
@@ -113,22 +123,31 @@ def myanswer(request):
                                 'Answers':answer,
                                 'skill':techskill})
 from .models import BlogPost,Comment
+# def post_list(request):
+#     skill= TechSkill.objects.all()
+#     # posts=Post.published.all()
+#     object_list = BlogPost.published.all()
+#     paginator = Paginator(object_list, 2)  # 3 posts in each page
+#     page = request.GET.get('page')
+#     try:
+#         posts = paginator.page(page)
+#     except PageNotAnInteger:
+
+#         posts = paginator.page(1)
+#     except EmptyPage:
+#         posts = paginator.page(paginator.num_pages)
+#     return render(request,'account/blog.html',{'posts':posts,'page':page,'skill':skill})
+#     #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
+
 def post_list(request):
-    skill= TechSkill.objects.all()
-    # posts=Post.published.all()
-    object_list = BlogPost.published.all()
-    paginator = Paginator(object_list, 2)  # 3 posts in each page
-    page = request.GET.get('page')
-    try:
-        posts = paginator.page(page)
-    except PageNotAnInteger:
-
-        posts = paginator.page(1)
-    except EmptyPage:
-        posts = paginator.page(paginator.num_pages)
-    return render(request,'account/blog.html',{'posts':posts,'page':page,'skill':skill})
-    #return render(request, 'blog/post/list.html', {'posts': posts, 'page': page})
-
+    question=Question.objects.all()
+    question_form=QuestionForm()
+    language=Languages.objects.all()
+    return render(request,'QA/home_mentor.html',
+                            {'Questions':question,
+                            'form':question_form,
+                            'languages':language,
+                            'skill':techskill})
 
 def post_detail(request,year,month,day,slug):
     post=get_object_or_404(BlogPost,
@@ -167,3 +186,5 @@ def Qusforme(request):
         
 
 
+def videocall(request):
+    return render(request,'QA/webrtc.html',{})

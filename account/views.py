@@ -5,7 +5,10 @@ from .form import LoginForm ,UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import *
+from QA.models import Question
 from django.contrib.auth.models import Group
+from django.urls import reverse
+
 
 techskill=TechSkill.objects.all()
 group=Group.objects.get(name='mentee')
@@ -13,7 +16,7 @@ def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
         if logged_in_user.groups.get().name=='mentor':
-            return HttpResponseRedirect(reverse('QA:post'))
+            return HttpResponseRedirect(reverse('QA:mentor_home'))
         elif logged_in_user.groups.get().name=='mentee':
             return HttpResponseRedirect(reverse('QA:home'))
         else:
@@ -62,11 +65,13 @@ def Register(request):
             login(request,new_user,backend='django.contrib.auth.backends.ModelBackend')
             new_profile=Profile(user=new_user)
             new_profile.save()
-            return render(request,
-                         'account/registration_done.html',
-                         {'new_user':new_user}
-                         )
-                        
+        
+            # return render(request,
+            #              'account/registration_done.html',
+            #              {'new_user':new_user}
+            #              )
+            #return HttpResponseRedirect(reverse('QA:home'))
+            return HttpResponseRedirect(reverse('QA:home'),)         
     else:
         user_form=UserRegistrationForm()
     return render(request,

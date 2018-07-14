@@ -18,7 +18,8 @@ from account.models import Languages
 languages=Languages.objects.all()
 @login_required
 def Home(request):
-    return render(request, 'mentor/home.html')
+    # return render(request, 'mentor/home.html')
+     return HttpResponseRedirect(reverse('QA:home'),)
 
 # for signup 
 def SignUp(request):

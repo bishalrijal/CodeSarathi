@@ -57,7 +57,7 @@
               <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">logout</a>
           </li>
         </ul>
-      </div>
+      </div>  
   </nav>
 
   <!-- body -->
@@ -78,7 +78,7 @@
 
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text">{{ post.body|truncatewords:30|linebreaks }}
-                    <a href="{{ post.get_absolute_url }}" class="btn btn-success">Read More &rarr;</a>
+                      <a href="{{ post.get_absolute_url }}" class="btn btn-success">Read More &rarr;</a>
                   </div>
                   <div class="card-footer text-muted">
                     Posted on {{ post.publish }} by <a href="#">{{ post.author }}</a>
