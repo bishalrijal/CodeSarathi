@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['codesarathi.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+   'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
     'Mentor.apps.MentorConfig',
-    'chat'
+    'QA',
     'social_django',
     'social_core',
+    'chat'
 
 ]
 

@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chat',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
+    'Mentor.apps.MentorConfig',
+    'QA',
+    'social_django',
+    'social_core',
+    'chat'
 ]
 
 MIDDLEWARE = [
