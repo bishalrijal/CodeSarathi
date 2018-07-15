@@ -11,7 +11,7 @@ from django.urls import reverse
 
 
 techskill=TechSkill.objects.all()
-#group=Group.objects.get(name='mentee')
+group=Group.objects.get(name='mentee')
 def loginredirect(request):
     if request.user is not None:
         logged_in_user=request.user
@@ -103,10 +103,15 @@ from Mentor.models import Mentor
 def MentorSearch(request,slug):
     query=slug
     if query:
-        result=Mentor.objects.filter(Q(profile__username__icontains=query)|
+        r=Mentor.objects.filter(Q(profile__username__icontains=query)|
         Q(skill__skill_name__icontains=query)|
         Q(languages__name__icontains=query)
         ).distinct()
+        result =[]
+        for p in r:
+            if p.status == "Available" or p.status =="available":
+                result.append(p)
+
         return render(request,'search/index.html',{'result':result })
 
 

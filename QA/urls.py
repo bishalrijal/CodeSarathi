@@ -10,7 +10,7 @@ urlpatterns=[
 
     path('<int:year>/<int:month>/<int:day>/<slug:slug>',views.post_detail,name='post_detail'),
     path('create',views.CreateQuestion,name='create'),
-    path('delete/<int:id>/<slug:slug>',views.delete,name='delete'),
+    path('delete/<slug:slug>',views.delete,name='delete'),
     path('edit/<int:id>/<slug:slug>',views.editquestion,name='edit'),
     path('filter-<slug:slug>',views.filter,name='filter'),
     path('myquestion',views.myquestion,name='myquestion'),

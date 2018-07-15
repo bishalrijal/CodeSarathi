@@ -10,9 +10,10 @@
     <div class="card" style="width: 48rem;">
             <div class="card-body">
             <div class="row">
-                <div class="col-4 text-center "><img src="new1.jpg" class="rounded-circle" alt="Asish Rijal" width="90" height="90"><br><br>
-               <a href="videocall"><button type="button" class="btn btn-success">Video Chat</button></a>
-               <a href="{% url 'chat:home' username=res.profile.username %}"><button type="button" class="btn btn-success">Text Chat</button></a>
+                <div class="col-4 text-center "><img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt=""><br>
+                    <a href="#"><button type="button" class="btn btn-success">Text Chat</button></a>
+                    <a href="videocall"><button type="button" class="btn btn-success">Video Chat</button></a>
+               
                 </div>
                 <div class="col-8">
                         <h5 class="card-title">{{res.profile.username}}</h5>
@@ -23,7 +24,7 @@
                         {% endfor %}
                         
                         <blockquote class="blockquote">
-                                <p><small>{{res.bio}}</small></p>        
+                                <p><small>{{<res.bio}} </small></p>        
                         </blockquote>
                 </div>
             </div>

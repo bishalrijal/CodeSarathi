@@ -22,6 +22,10 @@ class Question(models.Model):
     def save(self,*args,**kwargs):
         self.slug=slugify(self.title)
         super(Question,self).save(*args,**kwargs)
+    
+    class Meta:
+        ordering = ('-pub_date',)
+
 
     def __str__(self):
         return self.title

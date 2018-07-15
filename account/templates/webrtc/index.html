@@ -12,7 +12,7 @@
 </head>
 <body onload="showMyFace()">
 	<form id="loginForm" onsubmit="return login(this)">
-		<input type="text" name="username" id="username" placeholder="Enter username"/>
+		<input type="text" name="username" id="username" placeholder="Enter username" value="{{request.user.username}}"/>
 		<input type="submit" name="login_submit" value="Log In"/>
 		<input type="text" name="callerId" id="callerId" placeholder="Mentor username to call"/>
 	<button onclick="showFriendsFace()" type="button" class="btn btn-primary">

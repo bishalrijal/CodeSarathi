@@ -47,8 +47,8 @@
                       <div class="modal-body ">
                         <p><i class="fa fa-question-circle"></i> Are you sure you want to Delete?<br /></p>
                         <div class="actionsBtns">
-                            <form action="google.com" method="post">
-                                <a class="btn btn-large btn-danger" href="{% url 'QA:delete'  id=Question.id slug=Question.slug  %}">Delete</a>
+                            <form action="" method="post">
+                                <a class="btn btn-large btn-danger" href="{% url 'QA:delete' slug=Question.slug%}">Delete</a>
                                 <button onclick="" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             </form>
                         </div>

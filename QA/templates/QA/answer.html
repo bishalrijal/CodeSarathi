@@ -37,6 +37,7 @@
 
 
         <!-- comments -->
+        {% if request.user.is_authenticated %}
         <div class="card my-4">
           <h5 class="card-header">Answers:</h5>
           {% if answerform %}
@@ -52,6 +53,9 @@
           {% else %}
           {% endif %}
                   </div>
+          {% else %}
+          <p>Please login to answer</p>
+          {% endif %}
 
         {% for answer in Answers %}
         <div class="media mb-4">

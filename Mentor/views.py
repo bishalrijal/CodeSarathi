@@ -50,7 +50,7 @@ def Step2(request):
             mentor.languages.set(cleaned_data['languages'])
             mentor.github=cleaned_data['github']
             mentor.save()
-            return HttpResponseRedirect(reverse('Mentor:home'))
+            return HttpResponseRedirect(reverse('QA:mentor_home'))
     else:
         user_form=InfoForm(instance=request.user)
     return render(request,'step2.html',{'form':user_form,'languages':languages})
