@@ -8,7 +8,7 @@ $('#chat-form').on('submit', function(event){
     console.log($('#chat-msg').val());
 
     $.ajax({
-        url : '/chat/nirijan/post/',
+        url : '/chat/manoj/post/',
         type : 'POST',
         data : { msgbox : $('#chat-msg').val() },
 
@@ -26,7 +26,7 @@ $('#chat-form').on('submit', function(event){
 
 function getMessages(){
     if (!scrolling) {
-        $.get('/chat/nirajan/messages/', function(messages){
+        $.get('/chat/manoj/messages/', function(messages){
             console.log(messages);
             $('#msg-list').html(messages);
             var chatlist = document.getElementById('msg-list-div');

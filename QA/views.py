@@ -47,13 +47,10 @@ def CreateQuestion(request):
     
     return HttpResponseRedirect(reverse('QA:home'),)
 
-def delete(request,slug):
-    
-    print(slug)
-    question=get_object_or_404(Question,slug=slug)
+def delete(request,id,slug):    
+    question=get_object_or_404(Question,id=id,slug=slug)
     question.delete()
     return HttpResponseRedirect(reverse('QA:home'))
-
 
 def filter(request,slug):
     lang=slug
